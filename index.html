@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Mattia Corvaglia">
+  <title>Easy Harmony</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <style>
+    body { font-family:'Courier New', Courier, monospace; font-size: 14px; }
+    /* @media (min-width: 1400px) { .container { max-width: 960px; } }
+    @media (min-width: 1200px) { .container { max-width: 960px; } } */
+    a, a:visited, a:focus, a:active { color: inherit; }
+    .list-group-item.active { background-color: var(--bs-light-bg-subtle); border-color: var(--bs-border-color); }
+    /* ul { list-style-type: none; padding-left: 0; }
+    ul>li::before { content: ">"; padding-right: 1em; } */
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================= -->
+  <nav class="navbar">
+    <div class="container">
+      <span class="navbar-text"><i class="bi bi-music-note-beamed me-2"></i>Easy Harmony</span>
+      <!-- <form class="d-flex shadow" role="search">
+        <input class="form-control form-control-sm" type="search" placeholder="Search" aria-label="Search"/>
+      </form> -->
+    </div>
+  </nav>
+
+  <!-- ============================================================= -->
+  <div class="container">
+    <div class="row">
+
+      <!-- ============================================================= -->
+      <div class="col-md-2 mb-3">
+        <div class="list-group shadow" role="tablist" id="menu_list" >
+          <a class="list-group-item list-group-item-action text-capitalize active" id="tab_1" data-bs-toggle="tab" data-bs-target="#single_scale" type="button" role="tab" aria-controls="single_scale" aria-selected="true">Single Scale</a>
+          <a class="list-group-item list-group-item-action text-capitalize" id="tab_4" data-bs-toggle="tab" data-bs-target="#multiple_scales" type="button" role="tab" aria-controls="multiple_scales" aria-selected="false">Multiple Scales</a>
+          <a class="list-group-item list-group-item-action text-capitalize" id="tab_3" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">About</a>
+        </div>
+      </div>
+
+      <!-- ============================================================= -->
+      <div class="col-md-10 mb-3">
+        <div class="tab-content" id="menu_content">
+          
+          <!-- =========================================================== -->
+          <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="tab_1" tabindex="0" id="single_scale">
+            <div class="mb-3">
+              <div class="">
+                <!-- <p class="text-capitalize">Diatonic Scale</p> -->
+                
+                <form class="row g-3 mb-3">
+                  <div class="col-md-3">
+                    <select class="form-select form-select-sm" id="scale_root" aria-label="Select the root">
+                      <option value="" disabled selected>Root</option>
+                      <option value="1">C</option>
+                      <option value="2">C♯</option>
+                      <option value="3">D</option>
+                      <option value="4">D♯</option>
+                      <option value="5">E</option>
+                      <option value="6">F</option>
+                      <option value="7">F♯</option>
+                      <option value="8">G</option>
+                      <option value="9">G♯</option>
+                      <option value="10">A</option>
+                      <option value="11">A♯</option>
+                      <option value="12">B</option>
+                    </select>
+                  </div>
+                  <div class="col-md-9">
+                    <select class="form-select form-select-sm" id="scale_mode" aria-label="Select the scale">
+                      <option value="" disabled selected>Scale</option>
+                      <option value="1">Ionian (Major)</option>
+                      <option value="2">Dorian</option>
+                      <option value="3">Phrygian</option>
+                      <option value="4">Lydian</option>
+                      <option value="5">Mixolydian</option>
+                      <option value="6">Aeolian (Natural Minor)</option>
+                      <option value="7">Locrian</option>
+                      <option disabled>──────────</option>
+                      <option value="8">Harmonic Minor</option>
+                      <option value="9">Locrian ♯13</option>
+                      <option value="10">Ionian Augmented</option>
+                      <option value="11">Dorian ♯11</option>
+                      <option value="12">Phrygian ♯3</option>
+                      <option value="13">Lydian ♯11</option>
+                      <option value="14">Suprelocrian Diminished</option>
+                      <option disabled>──────────</option>
+                      <option value="15">Melodic Minor</option>
+                      <option value="16">Dorian ♭9</option>
+                      <option value="17">Lydian Augmented</option>
+                      <option value="18">Lydian Dominant</option>
+                      <option value="19">Mixolydian ♭13</option>
+                      <option value="20">Aeolian ♭5</option>
+                      <option value="21">Superlocrian</option>
+                    </select>
+                  </div>
+                </form>
+
+
+              </div>
+            </div>
+
+            <div class="card shadow mb-3">
+              <div class="card-body p-4">
+                <p class="text-capitalize">Scale Degrees</p>
+                <div class="row mt-4 mb-3" id="scale_degrees_content"></div>
+              </div>
+            </div>
+
+            <div class="card shadow">
+              <div class="card-body p-4">
+                <p class="text-capitalize">Chord Progression</p>
+                  <div class="row mt-4 mb-3" id="scale_chords_content"></div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <!-- =========================================================== -->
+          <div class="tab-pane fade" role="tabpanel" aria-labelledby="tab_3" tabindex="0" id="multiple_scales">
+            <div class="card shadow">
+              <div class="card-body p-4">
+
+                <form class="row g-3 mb-3">
+                  <div class="col-md-3">
+                    <select class="form-select form-select-sm" id="cheatsheet_root" aria-label="Select the root">
+                      <option value="" disabled selected>Root</option>
+                      <option value="1">C</option>
+                      <option value="2">C♯</option>
+                      <option value="3">D</option>
+                      <option value="4">D♯</option>
+                      <option value="5">E</option>
+                      <option value="6">F</option>
+                      <option value="7">F♯</option>
+                      <option value="8">G</option>
+                      <option value="9">G♯</option>
+                      <option value="10">A</option>
+                      <option value="11">A♯</option>
+                      <option value="12">B</option>
+                    </select>
+                  </div>
+                  <div class="col-4">
+                    <select class="form-select form-select-sm" id="cheatsheet_quality" aria-label="Select the quality">
+                      <option value="1" selected>All Scales</option>
+                      <option value="2">Only Major Scales</option>
+                      <option value="3">Only Minor Scales</option>
+                    </select>
+                  </div>
+                  <div class="col-5">
+                    <select class="form-select form-select-sm" id="cheatsheet_item" aria-label="Select the values to show">
+                      <option value="" disabled selected>Show</option>
+                      <option value="3">Formula</option>
+                      <option value="1">Intervals</option>
+                      <option value="2">Scale Degrees</option>
+                      <!-- <option value="4">Chord Quality</option> -->
+                      <option value="5">Chord Progression</option>
+                    </select>
+                  </div>
+                </form>
+
+                <!-- <p class="text-capitalize">Cheatsheet</p> -->
+
+                <table class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th scope="col">Scale</th>
+                      <th scope="col">1</th>
+                      <th scope="col">2</th>
+                      <th scope="col">3</th>
+                      <th scope="col">4</th>
+                      <th scope="col">5</th>
+                      <th scope="col">6</th>
+                      <th scope="col">7</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cheatsheet_content"></tbody>
+                </table>
+                
+              </div>
+            </div>
+          </div>
+
+
+          <!-- =========================================================== -->
+          <div class="tab-pane fade" role="tabpanel" aria-labelledby="tab_3" tabindex="0" id="about">
+            <div class="card shadow">
+              <div class="card-body p-4">
+                <p class="text-capitalize">About</p>
+                <p>Welcome to this project — a simple and practical tool designed for musicians, students, producers, and music theory enthusiasts.</p>
+                <p>The goal of this website is to provide a fast and intuitive way to generate and explore the most important diatonic scales, including major, natural minor, harmonic minor, and melodic minor scales. Whether you are practicing your instrument, studying music theory, composing, improvising, or simply looking for a quick reference, this tool is built to make the process immediate and distraction-free.</p>
+                <p>Unlike complex music software filled with unnecessary features, this application focuses on clarity and usability. Just choose a root note and a scale type to instantly visualize the notes of the scale with correct musical notation, including sharps, flats, and advanced theoretical spellings when needed.</p>
+                <p>This project was developed by <a href="https://mattiacorvaglia.com">mcdev</a>, with the idea of creating a lightweight and accessible reference tool that musicians can use every day — both for learning and for practical musical workflows.</p>
+                <p>Thanks for visiting, and enjoy exploring music theory.</p>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ============================================================= -->
+        </div>
+      </div>
+
+
+    <!-- ============================================================= -->
+    </div>
+  </div>
+
+
+
+  <!-- ============================================================= -->
+  <template id="scale_tmpl">
+    <div class="col-sm">
+      <div class="card">
+        <div class="card-body px-1 text-center">
+          <p class=""></p>
+          <span class="fs-5"></span>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- ============================================================= -->
+  <template id="cheatsheet_tmpl">
+    <tr>
+      <th scope="row" class="text-capitalize"></th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </template>
+
+
+  <!-- ============================================================= -->
+  <!-- Javascripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script language="javascript">
+    // vars
+    const MODES = [
+      {
+        "name": "ionian",
+        "alterations": [],
+        "intervals": [ "1", "2", "3", "4", "5", "6", "7" ],
+        "maj": true,
+        "formula": [ 2, 2, 1, 2, 2, 2, 1 ],
+        "degree_quality": [ "I", "ii", "iii", "IV", "V", "vi", "vii" ],
+        "chord_progression": [ "maj7", "m7", "m7", "maj7", "7", "m7", "m7(♭5)" ]
+      },
+      {
+        "name": "dorian",
+        "alterations": [ "♭3", "♭7" ],
+        "intervals": [ "1", "2", "♭3", "4", "5", "6", "♭7" ],
+        "maj": false,
+        "formula": [ 2, 1, 2, 2, 2, 1, 2 ],
+        "degree_quality": [ "i", "ii", "III", "IV", "v", "vi", "VII" ],
+        "chord_progression": [ "m7", "m7", "maj7", "7", "m7", "m7(♭5)", "maj7" ]
+      },
+      {
+        "name": "phrygian",
+        "alterations": [ "♭2", "♭3", "♭6", "♭7" ],
+        "intervals": [ "1", "♭2", "♭3", "4", "5", "♭6", "♭7" ],
+        "maj": false,
+        "formula": [ 1, 2, 2, 2, 1, 2, 2 ],
+        "degree_quality": [ "i", "II", "III", "iv", "v", "VI", "vii" ],
+        "chord_progression": [ "m7", "maj7", "7", "m7", "m7(♭5)", "maj7", "m7" ]
+      },
+      {
+        "name": "lydian",
+        "alterations": [ "♯4" ],
+        "intervals": [ "1", "2", "3", "♯4", "5", "6", "7" ],
+        "maj": true,
+        "formula": [ 2, 2, 2, 1, 2, 2, 1 ],
+        "degree_quality": [ "I", "II", "iii", "iv", "V", "vi", "vii" ],
+        "chord_progression": [ "maj7", "7", "m7", "m7(♭5)", "maj7", "m7", "m7" ]
+      },
+      {
+        "name": "mixolydian",
+        "alterations": [ "♭7" ],
+        "intervals": [ "1", "2", "3", "4", "5", "6", "♭7" ],
+        "maj": true,
+        "formula": [ 2, 2, 1, 2, 2, 1, 2 ],
+        "degree_quality": [ "I", "ii", "iii", "IV", "v", "vi", "VII" ],
+        "chord_progression": [ "7", "m7", "m7(♭5)", "maj7", "m7", "m7", "maj7" ]
+      },
+      {
+        "name": "aeolian",
+        "alterations": [ "♭3", "♭6", "♭7" ],
+        "intervals": [ "1", "2", "♭3", "4", "5", "♭6", "♭7" ],
+        "maj": false,
+        "formula": [ 2, 1, 2, 2, 1, 2, 2 ],
+        "degree_quality": [ "i", "ii", "III", "iv", "v", "VI", "VII" ],
+        "chord_progression": [ "m7", "m7(♭5)", "maj7", "m7", "m7", "maj7", "7" ]
+      },
+      {
+        "name": "locrian",
+        "alterations": [ "♭2", "♭3", "♭5", "♭6", "♭7" ],
+        "intervals": [ "1", "♭2", "♭3", "4", "♭5", "♭6", "♭7" ],
+        "maj": false,
+        "formula": [ 1, 2, 2, 1, 2, 2, 2 ],
+        "degree_quality": [ "i", "II", "iii", "iv", "V", "VI", "vii" ],
+        "chord_progression": [ "m7(♭5)", "maj7", "m7", "m7", "maj7", "7", "m7" ]
+      },
+      {
+        "name": "harmonic minor",
+        "alterations": [ "♭3", "♭6" ],
+        "intervals": [ "1", "2", "♭3", "4", "5", "♭6", "7" ],
+        "maj": false,
+        "formula": [ 2, 1, 2, 2, 1, 3, 1 ],
+        "degree_quality": [ "i", "ii", "III", "iv", "V", "VI", "VII" ],
+        "chord_progression": [ "mM7", "m7(♭5)", "maj7(♯5)", "m7", "7", "maj7", "dim7" ]
+      },
+      {
+        "name": "locrian ♯13",
+        "alterations": [ "♭2", "♭3", "♭5", "♭6" ],
+        "intervals": [ "1", "♭2", "♭3", "4", "♭5", "♭6", "7" ],
+        "maj": false,
+        "formula": [ 1, 2, 2, 1, 3, 1, 2 ],
+        "degree_quality": [ "i", "II", "iii", "IV", "V", "vi", "vii" ],
+        "chord_progression": [ "m7(♭5)", "maj7(♯5)", "m7", "7", "maj7", "dim7", "mM7" ]
+      },
+      {
+        "name": "ionian augmented",
+        "alterations": [ "♯5" ],
+        "intervals": [ "1", "2", "3", "4", "♯5", "6", "7" ],
+        "maj": true,
+        "formula": [ 2, 2, 1, 3, 1, 2, 1 ],
+        "degree_quality": [ "I", "ii", "III", "IV", "v", "vi", "vii" ],
+        "chord_progression": [ "maj7(♯5)", "m7", "7", "maj7", "dim7", "mM7", "m7(♭5)" ]
+      },
+      {
+        "name": "dorian ♯11",
+        "alterations": [ "♭3", "♯4", "♭7" ],
+        "intervals": [ "1", "2", "♭3", "♯4", "5", "6", "♭7" ],
+        "maj": false,
+        "formula": [ 2, 1, 3, 1, 2, 1, 2 ],
+        "degree_quality": [ "i", "II", "III", "iv", "v", "vi", "VII" ],
+        "chord_progression": [ "m7", "7", "maj7", "dim7", "mM7", "m7(♭5)", "maj7(♯5)" ]
+      },
+      {
+        "name": "phrygian ♯3",
+        "alterations": [ "♭2", "♭6", "♭7" ],
+        "intervals": [ "1", "♭2", "3", "4", "5", "♭6", "♭7" ],
+        "maj": true,
+        "formula": [ 1, 3, 1, 2, 1, 2, 2 ],
+        "degree_quality": [ "I", "II", "iii", "iv", "v", "VI", "vii" ],
+        "chord_progression": [ "7", "maj7", "dim7", "mM7", "m7(♭5)", "maj7(♯5)", "m7" ]
+      },
+      {
+        "name": "lydian ♯9",
+        "alterations": [ "♯2", "♯4" ],
+        "intervals": [ "1", "♯2", "3", "♯4", "5", "6", "7" ],
+        "maj": true,
+        "formula": [ 3, 1, 2, 1, 2, 2, 1 ],
+        "degree_quality": [ "I", "ii", "iii", "iv", "V", "vi", "VII" ],
+        "chord_progression": [ "maj7", "dim7", "mM7", "m7(♭5)", "maj7(♯5)", "m7", "7" ]
+      },
+      {
+        "name": "suprelocrian diminished",
+        "alterations": [ "♭2", "♭3", "♭4", "♭5", "♭6", "𝄫7" ],
+        "intervals": [ "1", "♭2", "♭3", "♭4", "♭5", "♭6", "𝄫7" ],
+        "maj": false,
+        "formula": [ 1, 2, 1, 2, 2, 1, 3 ],
+        "degree_quality": [ "i", "ii", "iii", "IV", "v", "VI", "VII" ],
+        "chord_progression": [ "dim7", "mM7", "m7(♭5)", "maj7(♯5)", "m7", "7", "maj7" ]
+      },
+      {
+        "name": "melodic minor",
+        "alterations": [ "♭3" ],
+        "intervals": [ "1", "2", "♭3", "4", "5", "6", "7" ],
+        "maj": false,
+        "formula": [ 2, 1, 2, 2, 2, 2, 1 ],
+        "degree_quality": [ "i", "ii", "III", "IV", "V", "vi", "vii" ],
+        "chord_progression": [ "mM7", "m7", "maj7(♯5)", "7", "7", "m7(♭5)", "m7(♭5)" ]
+      },
+      {
+        "name": "dorian ♭9",
+        "alterations": [ "♭2", "♭3", "♭7" ],
+        "intervals": [ "1", "♭2", "♭3", "4", "5", "6", "♭7" ],
+        "maj": false,
+        "formula": [ 1, 2, 2, 2, 2, 1, 2 ],
+        "degree_quality": [ "i", "II", "III", "IV", "v", "vi", "vii" ],
+        "chord_progression": [ "m7", "maj7(♯5)", "7", "7", "m7(♭5)", "m7(♭5)", "mM7" ]
+      },
+      {
+        "name": "lydian augmented",
+        "alterations": [ "♯4", "♯5" ],
+        "intervals": [ "1", "2", "3", "♯4", "♯5", "6", "7" ],
+        "maj": true,
+        "formula": [ 2, 2, 2, 2, 1, 2, 1 ],
+        "degree_quality": [ "I", "II", "III", "iv", "v", "vi", "vii" ],
+        "chord_progression": [ "maj7(♯5)", "7", "7", "m7(♭5)", "m7(♭5)", "mM7", "m7" ]
+      },
+      {
+        "name": "lydian dominant",
+        "alterations": [ "♯4", "♭7" ],
+        "intervals": [ "1", "2", "3", "♯4", "5", "6", "♭7" ],
+        "maj": true,
+        "formula": [ 2, 2, 2, 1, 2, 1, 2 ],
+        "degree_quality": [ "I", "II", "iii", "iv", "v", "vi", "VII" ],
+        "chord_progression": [ "7", "7", "m7(♭5)", "m7(♭5)", "mM7", "m7", "maj7(♯5)" ]
+      },
+      {
+        "name": "mixolydian ♭13",
+        "alterations": [ "♭6", "♭7" ],
+        "intervals": [ "1", "2", "3", "4", "5", "♭6", "♭7" ],
+        "maj": true,
+        "formula": [ 2, 2, 1, 2, 1, 2, 2 ],
+        "degree_quality": [ "I", "ii", "iii", "iv", "v", "VI", "VII" ],
+        "chord_progression": [ "7", "m7(♭5)", "m7(♭5)", "mM7", "m7", "maj7(♯5)", "7" ]
+      },
+      {
+        "name": "aeolian ♭5",
+        "alterations": [ "♭3", "♭5", "♭6", "♭7" ],
+        "intervals": [ "1", "2", "♭3", "4", "♭5", "♭6", "♭7" ],
+        "maj": false,
+        "formula": [ 2, 1, 2, 1, 2, 2, 2 ],
+        "degree_quality": [ "i", "ii", "iii", "iv", "V", "VI", "VII" ],
+        "chord_progression": [ "m7(♭5)", "m7(♭5)", "mM7", "m7", "maj7(♯5)", "7", "7" ]
+      },
+      {
+        "name": "superlocrian",
+        "alterations": [ "♭2", "♭3", "♭4", "♭5", "♭6", "♭7" ],
+        "intervals": [ "1", "♭2", "♭3", "♭4", "♭5", "♭6", "♭7" ],
+        "maj": false,
+        "formula": [ 1, 2, 1, 2, 2, 2, 2 ],
+        "degree_quality": [ "i", "ii", "iii", "IV", "V", "VI", "VII" ],
+        "chord_progression": [ "m7(♭5)", "mM7", "m7", "maj7(♯5)", "7", "7", "m7(♭5)" ]
+      }
+    ]
+
+    const NOTES = [ "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B" ];
+    const ROMAN_NUMBER = [ "I", "II", "III", "IV", "V", "VI", "VII" ];
+    const NOTE_LETTERS = [ "C", "D", "E", "F", "G", "A", "B" ];
+    const NATURAL_SEMITONES = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+    const CHEATSHEET_IDS = [ "intervals", "scale_degrees", "formula", "degree_quality", "progression" ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // document.getElementById('homebtn').addEventListener('click', (e) => {
+      //   document.querySelector('#menu_list>li>a.active').classList.remove('active');
+      //   e.preventDefault();
+      // });
+
+      document.getElementById('scale_root').addEventListener("change", (e) => document.getElementById('scale_mode').selectedIndex = 0 );
+      document.getElementById('scale_mode').addEventListener("change", (e) => showScale(e.target.value) );
+
+      document.getElementById('cheatsheet_root').addEventListener("change", (e) => document.getElementById('cheatsheet_item').selectedIndex = 0 );
+      document.getElementById('cheatsheet_quality').addEventListener("change", (e) => document.getElementById('cheatsheet_item').selectedIndex = 0 );
+      document.getElementById('cheatsheet_item').addEventListener("change", (e) => showCheatsheet(e.target.value) );
+
+    });
+
+
+    function showScale(modeId) {
+      if (modeId < 1) { return; }
+      const rootId = document.getElementById('scale_root').value;
+      if (!rootId) { return; }
+      const mode = MODES[(modeId-1)];
+      const res = generateScale(NOTES[(rootId-1)], mode.formula);
+      const template = document.getElementById('scale_tmpl');
+      const fragmentDegrees = new DocumentFragment();
+      const fragmentChords = new DocumentFragment();
+      for (let i = 0; i < 7; i++) {
+        const colScale = template.content.firstElementChild.cloneNode(true);
+        colScale.getElementsByTagName('p')[0].textContent = mode.intervals[i];
+        colScale.getElementsByTagName('span')[0].textContent = res[i];
+        fragmentDegrees.appendChild(colScale);
+        
+        const colChord = template.content.firstElementChild.cloneNode(true);
+        colChord.getElementsByTagName('p')[0].textContent = mode.degree_quality[i];
+        colChord.getElementsByTagName('span')[0].textContent = res[i]+mode.chord_progression[i];
+        fragmentChords.appendChild(colChord);
+      }
+      
+      const el = document.getElementById('scale_degrees_content');
+      el.innerHTML = "";
+      el.appendChild(fragmentDegrees);
+      
+      const el2 = document.getElementById('scale_chords_content');
+      el2.innerHTML = "";
+      el2.appendChild(fragmentChords);
+    }
+
+    function showCheatsheet(itemId) {
+      if (!itemId) { return; }
+      const rootId = document.getElementById('cheatsheet_root').value;
+      if (!rootId) { return; }
+      const cmd = CHEATSHEET_IDS[(itemId-1)];
+      const template = document.getElementById('cheatsheet_tmpl');
+      const fragment = new DocumentFragment();
+      const qualityFilter = document.getElementById('cheatsheet_quality').value;
+
+      for (let i = 0; i < 21; i++) {
+        let item = MODES[i];
+
+        if (qualityFilter == "2" && !item.maj) { continue; }
+        if (qualityFilter == "3" && item.maj) { continue; }
+
+        item.scale_degrees = generateScale(NOTES[(rootId-1)], item.formula);
+        const tr = template.content.firstElementChild.cloneNode(true);
+        tr.children[0].textContent = item.name;
+        if (itemId == 5) {
+          tr.children[1].textContent = item.scale_degrees[0]+item.chord_progression[0];
+          tr.children[2].textContent = item.scale_degrees[1]+item.chord_progression[1];
+          tr.children[3].textContent = item.scale_degrees[2]+item.chord_progression[2];
+          tr.children[4].textContent = item.scale_degrees[3]+item.chord_progression[3];
+          tr.children[5].textContent = item.scale_degrees[4]+item.chord_progression[4];
+          tr.children[6].textContent = item.scale_degrees[5]+item.chord_progression[5];
+          tr.children[7].textContent = item.scale_degrees[6]+item.chord_progression[6];
+        } else {
+          tr.children[1].textContent = item[cmd][0];
+          tr.children[2].textContent = item[cmd][1];
+          tr.children[3].textContent = item[cmd][2];
+          tr.children[4].textContent = item[cmd][3];
+          tr.children[5].textContent = item[cmd][4];
+          tr.children[6].textContent = item[cmd][5];
+          tr.children[7].textContent = item[cmd][6];
+        }
+        fragment.appendChild(tr);
+      }
+      const el = document.getElementById('cheatsheet_content');
+      el.innerHTML = "";
+      el.appendChild(fragment);
+    }
+
+
+    // Parse note like: C, C#, C♯, Db, D♭, D♭♭, F##, F♯♯, G𝄪, Abb, A𝄫
+    function parseNote(note) {
+      note = note.replace(/#/g, "♯").replace(/b/g, "♭");
+      const letter = note[0];
+      const accidentals = note.slice(1);
+      let accidentalValue = 0;
+
+      for (const char of accidentals) {
+        if (char === "♯") accidentalValue += 1;
+        if (char === "♭") accidentalValue -= 1;
+        if (char === "𝄪") accidentalValue += 2;
+        if (char === "𝄫") accidentalValue -= 2;
+      }
+
+      const semitone = (NATURAL_SEMITONES[letter] + accidentalValue + 12) % 12;
+
+      return { letter, semitone };
+    }
+
+    // Replace accidentals
+    function accidentalString(offset) {
+      if (offset === 0) return "";
+
+      if (offset > 0) {
+        if (offset === 2) return "𝄪";
+        return "♯".repeat(offset);
+      }
+
+      if (offset < 0) {
+        if (offset === -2) return "𝄫";
+        return "♭".repeat(Math.abs(offset));
+      }
+    }
+
+    // Generate scale from root note and interval formula in semitones
+    function generateScale(root, formula) {
+
+      const parsedRoot = parseNote(root);
+      const scale = [root];
+      let currentSemitone = parsedRoot.semitone;
+      let currentLetterIndex = NOTE_LETTERS.indexOf(parsedRoot.letter);
+
+      for (let i = 0; i < formula.length - 1; i++) {
+        currentSemitone = (currentSemitone + formula[i]) % 12;
+        currentLetterIndex = (currentLetterIndex + 1) % 7;
+        const targetLetter = NOTE_LETTERS[currentLetterIndex];
+        const naturalSemitone = NATURAL_SEMITONES[targetLetter];
+        let diff = (currentSemitone - naturalSemitone + 12) % 12;
+        // normalize to range [-6, +6]
+        if (diff > 6) diff -= 12;
+        const note = targetLetter + accidentalString(diff);
+        scale.push(note);
+      }
+
+      return scale;
+    }
+
+  </script>
+</body>
+</html>
