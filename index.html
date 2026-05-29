@@ -48,11 +48,11 @@
           
           <!-- =========================================================== -->
           <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="tab_1" tabindex="0" id="single_scale">
-            <div class="mb-3">
-              <div class="">
+            <div class="card shadow mb-3">
+              <div class="card-body p-4">
                 <!-- <p class="text-capitalize">Diatonic Scale</p> -->
                 
-                <form class="row g-3 mb-3">
+                <form class="row g-3 mb-5">
                   <div class="col-md-3">
                     <select class="form-select form-select-sm" id="scale_root" aria-label="Select the root">
                       <option value="" disabled selected>Root</option>
@@ -100,21 +100,27 @@
                   </div>
                 </form>
 
+                <div id="single_welcome" style="display: block;">
+                  <p>Select all filters to continue.</p>
+                </div>
 
+              <!-- </div>
+            </div> -->
+
+            <div id="single_content" style="display: none;">
+              <!-- <div class="card shadow mb-3">
+                <div class="card-body p-4"> -->
+                  <hr class="">
+                  <p class="text-capitalize">Scale Degrees</p>
+                  <div class="row mt-4 mb-5" id="scale_degrees_content"></div>
+                  <hr class="">
+                <!-- </div>
               </div>
-            </div>
-
-            <div class="card shadow mb-3">
-              <div class="card-body p-4">
-                <p class="text-capitalize">Scale Degrees</p>
-                <div class="row mt-4 mb-3" id="scale_degrees_content"></div>
-              </div>
-            </div>
-
-            <div class="card shadow">
-              <div class="card-body p-4">
-                <p class="text-capitalize">Chord Progression</p>
-                  <div class="row mt-4 mb-3" id="scale_chords_content"></div>
+              <div class="card shadow">
+                <div class="card-body p-4"> -->
+                  <p class="text-capitalize">Chord Progression</p>
+                    <div class="row mt-4 mb-3" id="scale_chords_content"></div>
+                </div>
               </div>
             </div>
 
@@ -126,7 +132,7 @@
             <div class="card shadow">
               <div class="card-body p-4">
 
-                <form class="row g-3 mb-3">
+                <form class="row g-3 mb-5">
                   <div class="col-md-3">
                     <select class="form-select form-select-sm" id="cheatsheet_root" aria-label="Select the root">
                       <option value="" disabled selected>Root</option>
@@ -165,21 +171,27 @@
 
                 <!-- <p class="text-capitalize">Cheatsheet</p> -->
 
-                <table class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th scope="col">Scale</th>
-                      <th scope="col">1</th>
-                      <th scope="col">2</th>
-                      <th scope="col">3</th>
-                      <th scope="col">4</th>
-                      <th scope="col">5</th>
-                      <th scope="col">6</th>
-                      <th scope="col">7</th>
-                    </tr>
-                  </thead>
-                  <tbody id="cheatsheet_content"></tbody>
-                </table>
+                <div class="table-responsive" id="multiple_content" style="display: none;">
+                  <table class="table table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col">Scale</th>
+                        <th scope="col">1</th>
+                        <th scope="col">2</th>
+                        <th scope="col">3</th>
+                        <th scope="col">4</th>
+                        <th scope="col">5</th>
+                        <th scope="col">6</th>
+                        <th scope="col">7</th>
+                      </tr>
+                    </thead>
+                    <tbody id="cheatsheet_content"></tbody>
+                  </table>
+                </div>
+
+                <div id="multiple_welcome" style="display: block;">
+                  <p>Select all filters to continue.</p>
+                </div>
                 
               </div>
             </div>
@@ -215,7 +227,7 @@
   <!-- ============================================================= -->
   <template id="scale_tmpl">
     <div class="col-sm">
-      <div class="card">
+      <div class="card mb-3">
         <div class="card-body px-1 text-center">
           <p class=""></p>
           <span class="fs-5"></span>
@@ -227,7 +239,7 @@
   <!-- ============================================================= -->
   <template id="cheatsheet_tmpl">
     <tr>
-      <th scope="row" class="text-capitalize"></th>
+      <th scope="row" class="fw-normal text-capitalize"></th>
       <td></td>
       <td></td>
       <td></td>
@@ -246,7 +258,7 @@
     // vars
     const MODES = [
       {
-        "name": "ionian",
+        "name": "ionian (major)",
         "alterations": [],
         "intervals": [ "1", "2", "3", "4", "5", "6", "7" ],
         "maj": true,
@@ -291,7 +303,7 @@
         "chord_progression": [ "7", "m7", "m7(♭5)", "maj7", "m7", "m7", "maj7" ]
       },
       {
-        "name": "aeolian",
+        "name": "aeolian (natural minor)",
         "alterations": [ "♭3", "♭6", "♭7" ],
         "intervals": [ "1", "2", "♭3", "4", "5", "♭6", "♭7" ],
         "maj": false,
@@ -462,6 +474,8 @@
       if (modeId < 1) { return; }
       const rootId = document.getElementById('scale_root').value;
       if (!rootId) { return; }
+      document.getElementById('single_content').style.display = 'block';
+      document.getElementById('single_welcome').style.display = 'none';
       const mode = MODES[(modeId-1)];
       const res = generateScale(NOTES[(rootId-1)], mode.formula);
       const template = document.getElementById('scale_tmpl');
@@ -492,6 +506,8 @@
       if (!itemId) { return; }
       const rootId = document.getElementById('cheatsheet_root').value;
       if (!rootId) { return; }
+      document.getElementById('multiple_content').style.display = 'block';
+      document.getElementById('multiple_welcome').style.display = 'none';
       const cmd = CHEATSHEET_IDS[(itemId-1)];
       const template = document.getElementById('cheatsheet_tmpl');
       const fragment = new DocumentFragment();
