@@ -35,10 +35,26 @@
 
       <!-- ============================================================= -->
       <div class="col-md-2 mb-3">
-        <div class="list-group shadow" role="tablist" id="menu_list" >
+        <div class="list-group shadow mb-3" role="tablist" id="menu_list" >
           <a class="list-group-item list-group-item-action text-capitalize active" id="tab_1" data-bs-toggle="tab" data-bs-target="#single_scale" type="button" role="tab" aria-controls="single_scale" aria-selected="true">Single Scale</a>
           <a class="list-group-item list-group-item-action text-capitalize" id="tab_4" data-bs-toggle="tab" data-bs-target="#multiple_scales" type="button" role="tab" aria-controls="multiple_scales" aria-selected="false">Multiple Scales</a>
           <a class="list-group-item list-group-item-action text-capitalize" id="tab_3" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">About</a>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-body">
+            <p class="card-title">Preferences</p>
+            <form>
+              <div class="form-check form-switch ms-2 ms-auto">
+                <input class="form-check-input" type="checkbox" role="switch" id="switchFlat" switch>
+                <label class="form-check-label" for="switchFlat">Toggle flat</label>
+              </div>
+              <div class="form-check form-switch ms-2 ms-auto">
+                <input class="form-check-input" type="checkbox" role="switch" id="switchShorthand" switch>
+                <label class="form-check-label" for="switchShorthand">Short format</label>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
 
@@ -54,21 +70,7 @@
                 
                 <form class="row g-3 mb-5">
                   <div class="col-md-3">
-                    <select class="form-select form-select-sm" id="scale_root" aria-label="Select the root">
-                      <option value="" disabled selected>Root</option>
-                      <option value="1">C</option>
-                      <option value="2">C♯</option>
-                      <option value="3">D</option>
-                      <option value="4">D♯</option>
-                      <option value="5">E</option>
-                      <option value="6">F</option>
-                      <option value="7">F♯</option>
-                      <option value="8">G</option>
-                      <option value="9">G♯</option>
-                      <option value="10">A</option>
-                      <option value="11">A♯</option>
-                      <option value="12">B</option>
-                    </select>
+                    <select class="form-select form-select-sm" id="scale_root" aria-label="Select the root"></select>
                   </div>
                   <div class="col-md-9">
                     <select class="form-select form-select-sm" id="scale_mode" aria-label="Select the scale">
@@ -119,7 +121,7 @@
               <div class="card shadow">
                 <div class="card-body p-4"> -->
                   <p class="text-capitalize">Chord Progression</p>
-                    <div class="row mt-4 mb-3" id="scale_chords_content"></div>
+                  <div class="row mt-4 mb-3" id="scale_chords_content"></div>
                 </div>
               </div>
             </div>
@@ -228,9 +230,9 @@
   <template id="scale_tmpl">
     <div class="col-sm">
       <div class="card mb-3">
+        <div class="card-header text-center"></div>
         <div class="card-body px-1 text-center">
-          <p class=""></p>
-          <span class="fs-5"></span>
+          <p class="mb-0 fs-5"></p>
         </div>
       </div>
     </div>
@@ -264,7 +266,8 @@
         "maj": true,
         "formula": [ 2, 2, 1, 2, 2, 2, 1 ],
         "degree_quality": [ "I", "ii", "iii", "IV", "V", "vi", "vii" ],
-        "chord_progression": [ "maj7", "m7", "m7", "maj7", "7", "m7", "m7(♭5)" ]
+        "chord_progression": [ "maj7", "m7", "m7", "maj7", "7", "m7", "m7(♭5)" ],
+        "chord_progression_short": [ "Δ7", "-7", "-7", "Δ7", "7", "-7", "∅" ]
       },
       {
         "name": "dorian",
@@ -273,7 +276,8 @@
         "maj": false,
         "formula": [ 2, 1, 2, 2, 2, 1, 2 ],
         "degree_quality": [ "i", "ii", "III", "IV", "v", "vi", "VII" ],
-        "chord_progression": [ "m7", "m7", "maj7", "7", "m7", "m7(♭5)", "maj7" ]
+        "chord_progression": [ "m7", "m7", "maj7", "7", "m7", "m7(♭5)", "maj7" ],
+        "chord_progression_short": [ "m7", "m7", "maj7", "7", "m7", "m7(♭5)", "maj7" ]
       },
       {
         "name": "phrygian",
@@ -282,7 +286,8 @@
         "maj": false,
         "formula": [ 1, 2, 2, 2, 1, 2, 2 ],
         "degree_quality": [ "i", "II", "III", "iv", "v", "VI", "vii" ],
-        "chord_progression": [ "m7", "maj7", "7", "m7", "m7(♭5)", "maj7", "m7" ]
+        "chord_progression": [ "m7", "maj7", "7", "m7", "m7(♭5)", "maj7", "m7" ],
+        "chord_progression_short": [ "m7", "maj7", "7", "m7", "m7(♭5)", "maj7", "m7" ]
       },
       {
         "name": "lydian",
@@ -291,7 +296,8 @@
         "maj": true,
         "formula": [ 2, 2, 2, 1, 2, 2, 1 ],
         "degree_quality": [ "I", "II", "iii", "iv", "V", "vi", "vii" ],
-        "chord_progression": [ "maj7", "7", "m7", "m7(♭5)", "maj7", "m7", "m7" ]
+        "chord_progression": [ "maj7", "7", "m7", "m7(♭5)", "maj7", "m7", "m7" ],
+        "chord_progression_short": [ "maj7", "7", "m7", "m7(♭5)", "maj7", "m7", "m7" ]
       },
       {
         "name": "mixolydian",
@@ -300,7 +306,8 @@
         "maj": true,
         "formula": [ 2, 2, 1, 2, 2, 1, 2 ],
         "degree_quality": [ "I", "ii", "iii", "IV", "v", "vi", "VII" ],
-        "chord_progression": [ "7", "m7", "m7(♭5)", "maj7", "m7", "m7", "maj7" ]
+        "chord_progression": [ "7", "m7", "m7(♭5)", "maj7", "m7", "m7", "maj7" ],
+        "chord_progression_short": [ "7", "m7", "m7(♭5)", "maj7", "m7", "m7", "maj7" ]
       },
       {
         "name": "aeolian (natural minor)",
@@ -309,7 +316,8 @@
         "maj": false,
         "formula": [ 2, 1, 2, 2, 1, 2, 2 ],
         "degree_quality": [ "i", "ii", "III", "iv", "v", "VI", "VII" ],
-        "chord_progression": [ "m7", "m7(♭5)", "maj7", "m7", "m7", "maj7", "7" ]
+        "chord_progression": [ "m7", "m7(♭5)", "maj7", "m7", "m7", "maj7", "7" ],
+        "chord_progression_short": [ "m7", "m7(♭5)", "maj7", "m7", "m7", "maj7", "7" ]
       },
       {
         "name": "locrian",
@@ -318,7 +326,8 @@
         "maj": false,
         "formula": [ 1, 2, 2, 1, 2, 2, 2 ],
         "degree_quality": [ "i", "II", "iii", "iv", "V", "VI", "vii" ],
-        "chord_progression": [ "m7(♭5)", "maj7", "m7", "m7", "maj7", "7", "m7" ]
+        "chord_progression": [ "m7(♭5)", "maj7", "m7", "m7", "maj7", "7", "m7" ],
+        "chord_progression_short": [ "m7(♭5)", "maj7", "m7", "m7", "maj7", "7", "m7" ]
       },
       {
         "name": "harmonic minor",
@@ -327,7 +336,8 @@
         "maj": false,
         "formula": [ 2, 1, 2, 2, 1, 3, 1 ],
         "degree_quality": [ "i", "ii", "III", "iv", "V", "VI", "VII" ],
-        "chord_progression": [ "mM7", "m7(♭5)", "maj7(♯5)", "m7", "7", "maj7", "dim7" ]
+        "chord_progression": [ "m(maj7)", "m7(♭5)", "maj7(♯5)", "m7", "7", "maj7", "dim7" ],
+        "chord_progression_short": [ "m(maj7)", "m7(♭5)", "maj7(♯5)", "m7", "7", "maj7", "dim7" ]
       },
       {
         "name": "locrian ♯13",
@@ -336,7 +346,8 @@
         "maj": false,
         "formula": [ 1, 2, 2, 1, 3, 1, 2 ],
         "degree_quality": [ "i", "II", "iii", "IV", "V", "vi", "vii" ],
-        "chord_progression": [ "m7(♭5)", "maj7(♯5)", "m7", "7", "maj7", "dim7", "mM7" ]
+        "chord_progression": [ "m7(♭5)", "maj7(♯5)", "m7", "7", "maj7", "dim7", "m(maj7)" ],
+        "chord_progression_short": [ "m7(♭5)", "maj7(♯5)", "m7", "7", "maj7", "dim7", "m(maj7)" ]
       },
       {
         "name": "ionian augmented",
@@ -345,7 +356,8 @@
         "maj": true,
         "formula": [ 2, 2, 1, 3, 1, 2, 1 ],
         "degree_quality": [ "I", "ii", "III", "IV", "v", "vi", "vii" ],
-        "chord_progression": [ "maj7(♯5)", "m7", "7", "maj7", "dim7", "mM7", "m7(♭5)" ]
+        "chord_progression": [ "maj7(♯5)", "m7", "7", "maj7", "dim7", "m(maj7)", "m7(♭5)" ],
+        "chord_progression_short": [ "maj7(♯5)", "m7", "7", "maj7", "dim7", "m(maj7)", "m7(♭5)" ]
       },
       {
         "name": "dorian ♯11",
@@ -354,7 +366,8 @@
         "maj": false,
         "formula": [ 2, 1, 3, 1, 2, 1, 2 ],
         "degree_quality": [ "i", "II", "III", "iv", "v", "vi", "VII" ],
-        "chord_progression": [ "m7", "7", "maj7", "dim7", "mM7", "m7(♭5)", "maj7(♯5)" ]
+        "chord_progression": [ "m7", "7", "maj7", "dim7", "m(maj7)", "m7(♭5)", "maj7(♯5)" ],
+        "chord_progression_short": [ "m7", "7", "maj7", "dim7", "m(maj7)", "m7(♭5)", "maj7(♯5)" ]
       },
       {
         "name": "phrygian ♯3",
@@ -363,7 +376,8 @@
         "maj": true,
         "formula": [ 1, 3, 1, 2, 1, 2, 2 ],
         "degree_quality": [ "I", "II", "iii", "iv", "v", "VI", "vii" ],
-        "chord_progression": [ "7", "maj7", "dim7", "mM7", "m7(♭5)", "maj7(♯5)", "m7" ]
+        "chord_progression": [ "7", "maj7", "dim7", "m(maj7)", "m7(♭5)", "maj7(♯5)", "m7" ],
+        "chord_progression_short": [ "7", "maj7", "dim7", "m(maj7)", "m7(♭5)", "maj7(♯5)", "m7" ]
       },
       {
         "name": "lydian ♯9",
@@ -372,7 +386,8 @@
         "maj": true,
         "formula": [ 3, 1, 2, 1, 2, 2, 1 ],
         "degree_quality": [ "I", "ii", "iii", "iv", "V", "vi", "VII" ],
-        "chord_progression": [ "maj7", "dim7", "mM7", "m7(♭5)", "maj7(♯5)", "m7", "7" ]
+        "chord_progression": [ "maj7", "dim7", "m(maj7)", "m7(♭5)", "maj7(♯5)", "m7", "7" ],
+        "chord_progression_short": [ "maj7", "dim7", "m(maj7)", "m7(♭5)", "maj7(♯5)", "m7", "7" ]
       },
       {
         "name": "suprelocrian diminished",
@@ -381,7 +396,8 @@
         "maj": false,
         "formula": [ 1, 2, 1, 2, 2, 1, 3 ],
         "degree_quality": [ "i", "ii", "iii", "IV", "v", "VI", "VII" ],
-        "chord_progression": [ "dim7", "mM7", "m7(♭5)", "maj7(♯5)", "m7", "7", "maj7" ]
+        "chord_progression": [ "dim7", "m(maj7)", "m7(♭5)", "maj7(♯5)", "m7", "7", "maj7" ],
+        "chord_progression_short": [ "dim7", "m(maj7)", "m7(♭5)", "maj7(♯5)", "m7", "7", "maj7" ]
       },
       {
         "name": "melodic minor",
@@ -390,7 +406,8 @@
         "maj": false,
         "formula": [ 2, 1, 2, 2, 2, 2, 1 ],
         "degree_quality": [ "i", "ii", "III", "IV", "V", "vi", "vii" ],
-        "chord_progression": [ "mM7", "m7", "maj7(♯5)", "7", "7", "m7(♭5)", "m7(♭5)" ]
+        "chord_progression": [ "m(maj7)", "m7", "maj7(♯5)", "7", "7", "m7(♭5)", "m7(♭5)" ],
+        "chord_progression_short": [ "m(maj7)", "m7", "maj7(♯5)", "7", "7", "m7(♭5)", "m7(♭5)" ]
       },
       {
         "name": "dorian ♭9",
@@ -399,7 +416,8 @@
         "maj": false,
         "formula": [ 1, 2, 2, 2, 2, 1, 2 ],
         "degree_quality": [ "i", "II", "III", "IV", "v", "vi", "vii" ],
-        "chord_progression": [ "m7", "maj7(♯5)", "7", "7", "m7(♭5)", "m7(♭5)", "mM7" ]
+        "chord_progression": [ "m7", "maj7(♯5)", "7", "7", "m7(♭5)", "m7(♭5)", "m(maj7)" ],
+        "chord_progression_short": [ "m7", "maj7(♯5)", "7", "7", "m7(♭5)", "m7(♭5)", "m(maj7)" ]
       },
       {
         "name": "lydian augmented",
@@ -408,7 +426,8 @@
         "maj": true,
         "formula": [ 2, 2, 2, 2, 1, 2, 1 ],
         "degree_quality": [ "I", "II", "III", "iv", "v", "vi", "vii" ],
-        "chord_progression": [ "maj7(♯5)", "7", "7", "m7(♭5)", "m7(♭5)", "mM7", "m7" ]
+        "chord_progression": [ "maj7(♯5)", "7", "7", "m7(♭5)", "m7(♭5)", "m(maj7)", "m7" ],
+        "chord_progression_short": [ "maj7(♯5)", "7", "7", "m7(♭5)", "m7(♭5)", "m(maj7)", "m7" ]
       },
       {
         "name": "lydian dominant",
@@ -417,7 +436,8 @@
         "maj": true,
         "formula": [ 2, 2, 2, 1, 2, 1, 2 ],
         "degree_quality": [ "I", "II", "iii", "iv", "v", "vi", "VII" ],
-        "chord_progression": [ "7", "7", "m7(♭5)", "m7(♭5)", "mM7", "m7", "maj7(♯5)" ]
+        "chord_progression": [ "7", "7", "m7(♭5)", "m7(♭5)", "m(maj7)", "m7", "maj7(♯5)" ],
+        "chord_progression_short": [ "7", "7", "m7(♭5)", "m7(♭5)", "m(maj7)", "m7", "maj7(♯5)" ]
       },
       {
         "name": "mixolydian ♭13",
@@ -426,7 +446,8 @@
         "maj": true,
         "formula": [ 2, 2, 1, 2, 1, 2, 2 ],
         "degree_quality": [ "I", "ii", "iii", "iv", "v", "VI", "VII" ],
-        "chord_progression": [ "7", "m7(♭5)", "m7(♭5)", "mM7", "m7", "maj7(♯5)", "7" ]
+        "chord_progression": [ "7", "m7(♭5)", "m7(♭5)", "m(maj7)", "m7", "maj7(♯5)", "7" ],
+        "chord_progression_short": [ "7", "m7(♭5)", "m7(♭5)", "m(maj7)", "m7", "maj7(♯5)", "7" ]
       },
       {
         "name": "aeolian ♭5",
@@ -435,7 +456,8 @@
         "maj": false,
         "formula": [ 2, 1, 2, 1, 2, 2, 2 ],
         "degree_quality": [ "i", "ii", "iii", "iv", "V", "VI", "VII" ],
-        "chord_progression": [ "m7(♭5)", "m7(♭5)", "mM7", "m7", "maj7(♯5)", "7", "7" ]
+        "chord_progression": [ "m7(♭5)", "m7(♭5)", "m(maj7)", "m7", "maj7(♯5)", "7", "7" ],
+        "chord_progression_short": [ "m7(♭5)", "m7(♭5)", "m(maj7)", "m7", "maj7(♯5)", "7", "7" ]
       },
       {
         "name": "superlocrian",
@@ -444,30 +466,82 @@
         "maj": false,
         "formula": [ 1, 2, 1, 2, 2, 2, 2 ],
         "degree_quality": [ "i", "ii", "iii", "IV", "V", "VI", "VII" ],
-        "chord_progression": [ "m7(♭5)", "mM7", "m7", "maj7(♯5)", "7", "7", "m7(♭5)" ]
+        "chord_progression": [ "m7(♭5)", "m(maj7)", "m7", "maj7(♯5)", "7", "7", "m7(♭5)" ],
+        "chord_progression_short": [ "m7(♭5)", "m(maj7)", "m7", "maj7(♯5)", "7", "7", "m7(♭5)" ]
       }
     ]
 
-    const NOTES = [ "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B" ];
+    const NOTES_SHARP = [ "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B" ];
+    const NOTES_FLAT = [ "C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B" ];
     const ROMAN_NUMBER = [ "I", "II", "III", "IV", "V", "VI", "VII" ];
     const NOTE_LETTERS = [ "C", "D", "E", "F", "G", "A", "B" ];
     const NATURAL_SEMITONES = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
     const CHEATSHEET_IDS = [ "intervals", "scale_degrees", "formula", "degree_quality", "progression" ];
+    const ACCIDENTALS_REGEX = /[♯♭𝄪𝄫]/gu;
+
+    let NOTES = NOTES_SHARP;
+    let CHORD_NOTATION_SHORT = false;
 
     document.addEventListener('DOMContentLoaded', () => {
-      // document.getElementById('homebtn').addEventListener('click', (e) => {
-      //   document.querySelector('#menu_list>li>a.active').classList.remove('active');
-      //   e.preventDefault();
-      // });
+
+      createRootSelect();
+
+      document.getElementById('switchFlat').addEventListener("change", (e) => toggleFlat(e.target.checked) );
+      document.getElementById('switchShorthand').addEventListener("change", (e) => toggleShort(e.target.checked) );
 
       document.getElementById('scale_root').addEventListener("change", (e) => document.getElementById('scale_mode').selectedIndex = 0 );
       document.getElementById('scale_mode').addEventListener("change", (e) => showScale(e.target.value) );
-
+      
       document.getElementById('cheatsheet_root').addEventListener("change", (e) => document.getElementById('cheatsheet_item').selectedIndex = 0 );
       document.getElementById('cheatsheet_quality').addEventListener("change", (e) => document.getElementById('cheatsheet_item').selectedIndex = 0 );
       document.getElementById('cheatsheet_item').addEventListener("change", (e) => showCheatsheet(e.target.value) );
 
     });
+
+    function createRootSelect() {
+      const select = document.getElementById('scale_root');
+      const currentValue = select.value;
+      select.innerHTML = '';
+      const oo = document.createElement('option');
+      oo.disabled = true;
+      oo.selected = true;
+      oo.value = '';
+      oo.textContent = 'Root';
+      select.appendChild(oo);
+      NOTES.forEach((item, index) => {
+        const o = document.createElement('option');
+        o.value = (index+1);
+        o.textContent = item;
+        select.appendChild(o);
+      });
+      if (currentValue > 0) {
+        select.value = currentValue;
+        currentMode = document.getElementById('scale_mode').value;
+        if (currentMode > 0 ) {
+          showScale(currentMode);
+        }
+      }
+    }
+
+    function toggleFlat(c) {
+      if (c) {
+        NOTES = NOTES_FLAT;
+      } else {
+        NOTES = NOTES_SHARP;
+      }
+      createRootSelect();
+    }
+
+    function toggleShort(c) {
+      CHORD_NOTATION_SHORT = c;
+
+      const currentRoot = document.getElementById('scale_root').value;
+      const currentMode = document.getElementById('scale_mode').value;
+
+      if (currentRoot > 0 && currentMode > 0) {
+        showScale(currentMode);
+      }
+    }
 
 
     function showScale(modeId) {
@@ -483,13 +557,23 @@
       const fragmentChords = new DocumentFragment();
       for (let i = 0; i < 7; i++) {
         const colScale = template.content.firstElementChild.cloneNode(true);
-        colScale.getElementsByTagName('p')[0].textContent = mode.intervals[i];
-        colScale.getElementsByTagName('span')[0].textContent = res[i];
+        // colScale.getElementsByTagName('p')[0].textContent = mode.intervals[i];
+        colScale.getElementsByClassName('card-header')[0].textContent = mode.intervals[i];
+        // colScale.getElementsByTagName('span')[0].textContent = res[i];
+        colScale.getElementsByTagName('p')[0].innerHTML = wrapAccidentalsInSup(res[i]);
         fragmentDegrees.appendChild(colScale);
         
         const colChord = template.content.firstElementChild.cloneNode(true);
-        colChord.getElementsByTagName('p')[0].textContent = mode.degree_quality[i];
-        colChord.getElementsByTagName('span')[0].textContent = res[i]+mode.chord_progression[i];
+        // colChord.getElementsByTagName('p')[0].textContent = mode.degree_quality[i];
+        colChord.getElementsByClassName('card-header')[0].textContent = mode.degree_quality[i];
+        // colChord.getElementsByTagName('span')[0].textContent = res[i]+mode.chord_progression[i];
+        // colChord.getElementsByTagName('span')[0].innerHTML = res[i]+'<sup>'+mode.chord_progression_short[i]+'</sup>';
+        // colChord.getElementsByTagName('p')[0].innerHTML = wrapAccidentalsInSup(res[i])+'<sup>'+mode.chord_progression_short[i]+'</sup>';
+        if (CHORD_NOTATION_SHORT) {
+          colChord.getElementsByTagName('p')[0].innerHTML = wrapAccidentalsInSup(res[i])+'<sup>'+mode.chord_progression_short[i]+'</sup>';
+        } else {
+          colChord.getElementsByTagName('p')[0].innerHTML = wrapAccidentalsInSup(res[i])+mode.chord_progression[i];
+        }
         fragmentChords.appendChild(colChord);
       }
       
@@ -544,6 +628,10 @@
       const el = document.getElementById('cheatsheet_content');
       el.innerHTML = "";
       el.appendChild(fragment);
+    }
+
+    function wrapAccidentalsInSup(text) {
+      return text.replace(ACCIDENTALS_REGEX, (char) => `<sup>${char}</sup>`);
     }
 
 
