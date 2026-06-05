@@ -607,13 +607,13 @@
         tr.children[0].textContent = item.name;
         if (itemId == 5) {
           if (CHORD_NOTATION_SHORT) {
-            tr.children[1].textContent = item.scale_degrees[0]+'<sup>'+item.chord_progression[0]+'</sup>';
-            tr.children[2].textContent = item.scale_degrees[1]+'<sup>'+item.chord_progression[1]+'</sup>';
-            tr.children[3].textContent = item.scale_degrees[2]+'<sup>'+item.chord_progression[2]+'</sup>';
-            tr.children[4].textContent = item.scale_degrees[3]+'<sup>'+item.chord_progression[3]+'</sup>';
-            tr.children[5].textContent = item.scale_degrees[4]+'<sup>'+item.chord_progression[4]+'</sup>';
-            tr.children[6].textContent = item.scale_degrees[5]+'<sup>'+item.chord_progression[5]+'</sup>';
-            tr.children[7].textContent = item.scale_degrees[6]+'<sup>'+item.chord_progression[6]+'</sup>';
+            tr.children[1].innerHTML = item.scale_degrees[0]+'<sup>'+item.chord_progression_short[0]+'</sup>';
+            tr.children[2].innerHTML = item.scale_degrees[1]+'<sup>'+item.chord_progression_short[1]+'</sup>';
+            tr.children[3].innerHTML = item.scale_degrees[2]+'<sup>'+item.chord_progression_short[2]+'</sup>';
+            tr.children[4].innerHTML = item.scale_degrees[3]+'<sup>'+item.chord_progression_short[3]+'</sup>';
+            tr.children[5].innerHTML = item.scale_degrees[4]+'<sup>'+item.chord_progression_short[4]+'</sup>';
+            tr.children[6].innerHTML = item.scale_degrees[5]+'<sup>'+item.chord_progression_short[5]+'</sup>';
+            tr.children[7].innerHTML = item.scale_degrees[6]+'<sup>'+item.chord_progression_short[6]+'</sup>';
           } else {
             tr.children[1].textContent = item.scale_degrees[0]+item.chord_progression[0];
             tr.children[2].textContent = item.scale_degrees[1]+item.chord_progression[1];
