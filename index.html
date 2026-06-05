@@ -136,21 +136,7 @@
 
                 <form class="row g-3 mb-5">
                   <div class="col-md-3">
-                    <select class="form-select form-select-sm" id="cheatsheet_root" aria-label="Select the root">
-                      <option value="" disabled selected>Root</option>
-                      <option value="1">C</option>
-                      <option value="2">C♯</option>
-                      <option value="3">D</option>
-                      <option value="4">D♯</option>
-                      <option value="5">E</option>
-                      <option value="6">F</option>
-                      <option value="7">F♯</option>
-                      <option value="8">G</option>
-                      <option value="9">G♯</option>
-                      <option value="10">A</option>
-                      <option value="11">A♯</option>
-                      <option value="12">B</option>
-                    </select>
+                    <select class="form-select form-select-sm" id="cheatsheet_root" aria-label="Select the root"></select>
                   </div>
                   <div class="col-4">
                     <select class="form-select form-select-sm" id="cheatsheet_quality" aria-label="Select the quality">
@@ -250,6 +236,12 @@
       <td></td>
       <td></td>
     </tr>
+  </template>
+
+
+  <!-- ============================================================= -->
+  <template id="root_empty_option">
+    <option value="" disabled selected>Root</option>
   </template>
 
 
@@ -479,51 +471,82 @@
     const ACCIDENTALS_REGEX = /[♯♭𝄪𝄫]/gu;
 
     let NOTES = NOTES_SHARP;
+    let ROOT_SINGLE_SCALE = 0;
+    let SCALE = 0;
+    let ROOT_MULTI_SCALE = 0;
+    let CHORD_QUALITY = 0;
+    let SHOW_SCALE = 0;
+    let SWITCH_FLAT = false;
     let CHORD_NOTATION_SHORT = false;
-
+    
     document.addEventListener('DOMContentLoaded', () => {
-
-      createRootSelect();
-
-      document.getElementById('switchFlat').addEventListener("change", (e) => toggleFlat(e.target.checked) );
-      document.getElementById('switchShorthand').addEventListener("change", (e) => toggleShort(e.target.checked) );
-
-      document.getElementById('scale_root').addEventListener("change", (e) => document.getElementById('scale_mode').selectedIndex = 0 );
-      document.getElementById('scale_mode').addEventListener("change", (e) => showScale(e.target.value) );
       
-      document.getElementById('cheatsheet_root').addEventListener("change", (e) => document.getElementById('cheatsheet_item').selectedIndex = 0 );
-      document.getElementById('cheatsheet_quality').addEventListener("change", (e) => document.getElementById('cheatsheet_item').selectedIndex = 0 );
-      document.getElementById('cheatsheet_item').addEventListener("change", (e) => showCheatsheet(e.target.value) );
-
+      createRootSelect();
+      
+      document.getElementById('scale_root').addEventListener("change", (e) => {
+        ROOT_SINGLE_SCALE = e.target.value;
+        document.getElementById('scale_mode').selectedIndex = 0;
+      });
+      document.getElementById('scale_mode').addEventListener("change", (e) => {
+        SCALE = e.target.value;
+        showScale();
+      });
+      document.getElementById('cheatsheet_root').addEventListener("change", (e) => {
+        ROOT_MULTI_SCALE = e.target.value;
+        document.getElementById('cheatsheet_item').selectedIndex = 0;
+      });
+      document.getElementById('cheatsheet_quality').addEventListener("change", (e) => {
+        CHORD_QUALITY = e.target.value;
+        document.getElementById('cheatsheet_item').selectedIndex = 0;
+      });
+      document.getElementById('cheatsheet_item').addEventListener("change", (e) => {
+        SHOW_SCALE = e.target.value;
+        showMultiScale();
+      });
+      document.getElementById('switchFlat').addEventListener("change", (e) => {
+        SWITCH_FLAT = e.target.checked;
+        toggleFlat();
+      });
+      document.getElementById('switchShorthand').addEventListener("change", (e) => {
+        CHORD_NOTATION_SHORT = e.target.checked;
+        showScale();
+        showMultiScale();
+      });
+      
     });
-
+    
     function createRootSelect() {
       const select = document.getElementById('scale_root');
-      const currentValue = select.value;
+      const selectMulti = document.getElementById('cheatsheet_root');
       select.innerHTML = '';
-      const oo = document.createElement('option');
-      oo.disabled = true;
-      oo.selected = true;
-      oo.value = '';
-      oo.textContent = 'Root';
-      select.appendChild(oo);
+      selectMulti.innerHTML = '';
+      const template = document.getElementById('root_empty_option');
+      const emptyOption = template.content.firstElementChild.cloneNode(true);
+      const emptyOptionMulti = template.content.firstElementChild.cloneNode(true);
+      select.appendChild(emptyOption);
+      selectMulti.appendChild(emptyOptionMulti);
       NOTES.forEach((item, index) => {
         const o = document.createElement('option');
         o.value = (index+1);
         o.textContent = item;
         select.appendChild(o);
+        const oMulti = document.createElement('option');
+        oMulti.value = (index+1);
+        oMulti.textContent = item;
+        selectMulti.appendChild(oMulti);
       });
-      if (currentValue > 0) {
-        select.value = currentValue;
-        currentMode = document.getElementById('scale_mode').value;
-        if (currentMode > 0 ) {
-          showScale(currentMode);
-        }
+      if (ROOT_SINGLE_SCALE > 0) {
+        select.value = ROOT_SINGLE_SCALE;
+        showScale();
+      }
+      if (ROOT_MULTI_SCALE > 0) {
+        selectMulti.value = ROOT_MULTI_SCALE;
+        showMultiScale();
       }
     }
 
-    function toggleFlat(c) {
-      if (c) {
+    function toggleFlat() {
+      if (SWITCH_FLAT) {
         NOTES = NOTES_FLAT;
       } else {
         NOTES = NOTES_SHARP;
@@ -531,43 +554,24 @@
       createRootSelect();
     }
 
-    function toggleShort(c) {
-      CHORD_NOTATION_SHORT = c;
-
-      const currentRoot = document.getElementById('scale_root').value;
-      const currentMode = document.getElementById('scale_mode').value;
-
-      if (currentRoot > 0 && currentMode > 0) {
-        showScale(currentMode);
-      }
-    }
-
-
-    function showScale(modeId) {
-      if (modeId < 1) { return; }
-      const rootId = document.getElementById('scale_root').value;
-      if (!rootId) { return; 
+    function showScale() {
+      if (SCALE == 0) { return; }
+      if (ROOT_SINGLE_SCALE == 0) { return; }
       document.getElementById('single_content').style.display = 'block';
       document.getElementById('single_welcome').style.display = 'none';
-      const mode = MODES[(modeId-1)];
-      const res = generateScale(NOTES[(rootId-1)], mode.formula);
+      const mode = MODES[(SCALE-1)];
+      const res = generateScale(NOTES[(ROOT_SINGLE_SCALE-1)], mode.formula);
       const template = document.getElementById('scale_tmpl');
       const fragmentDegrees = new DocumentFragment();
       const fragmentChords = new DocumentFragment();
       for (let i = 0; i < 7; i++) {
         const colScale = template.content.firstElementChild.cloneNode(true);
-        // colScale.getElementsByTagName('p')[0].textContent = mode.intervals[i];
         colScale.getElementsByClassName('card-header')[0].textContent = mode.intervals[i];
-        // colScale.getElementsByTagName('span')[0].textContent = res[i];
         colScale.getElementsByTagName('p')[0].innerHTML = wrapAccidentalsInSup(res[i]);
         fragmentDegrees.appendChild(colScale);
         
         const colChord = template.content.firstElementChild.cloneNode(true);
-        // colChord.getElementsByTagName('p')[0].textContent = mode.degree_quality[i];
         colChord.getElementsByClassName('card-header')[0].textContent = mode.degree_quality[i];
-        // colChord.getElementsByTagName('span')[0].textContent = res[i]+mode.chord_progression[i];
-        // colChord.getElementsByTagName('span')[0].innerHTML = res[i]+'<sup>'+mode.chord_progression_short[i]+'</sup>';
-        // colChord.getElementsByTagName('p')[0].innerHTML = wrapAccidentalsInSup(res[i])+'<sup>'+mode.chord_progression_short[i]+'</sup>';
         if (CHORD_NOTATION_SHORT) {
           colChord.getElementsByTagName('p')[0].innerHTML = wrapAccidentalsInSup(res[i])+'<sup>'+mode.chord_progression_short[i]+'</sup>';
         } else {
@@ -585,27 +589,25 @@
       el2.appendChild(fragmentChords);
     }
 
-    function showCheatsheet(itemId) {
-      if (!itemId) { return; }
-      const rootId = document.getElementById('cheatsheet_root').value;
-      if (!rootId) { return; }
+    function showMultiScale() {
+      if (SHOW_SCALE == 0) { return; }
+      if (ROOT_MULTI_SCALE == 0) { return; }
       document.getElementById('multiple_content').style.display = 'block';
       document.getElementById('multiple_welcome').style.display = 'none';
-      const cmd = CHEATSHEET_IDS[(itemId-1)];
+      const cmd = CHEATSHEET_IDS[(SHOW_SCALE-1)];
       const template = document.getElementById('cheatsheet_tmpl');
       const fragment = new DocumentFragment();
-      const qualityFilter = document.getElementById('cheatsheet_quality').value;
 
       for (let i = 0; i < 21; i++) {
         let item = MODES[i];
 
-        if (qualityFilter == "2" && !item.maj) { continue; }
-        if (qualityFilter == "3" && item.maj) { continue; }
+        if (CHORD_QUALITY == 2 && !item.maj) { continue; }
+        if (CHORD_QUALITY == 3 && item.maj) { continue; }
 
-        item.scale_degrees = generateScale(NOTES[(rootId-1)], item.formula);
+        item.scale_degrees = generateScale(NOTES[(ROOT_MULTI_SCALE-1)], item.formula);
         const tr = template.content.firstElementChild.cloneNode(true);
         tr.children[0].textContent = item.name;
-        if (itemId == 5) {
+        if (SHOW_SCALE == 5) {
           if (CHORD_NOTATION_SHORT) {
             tr.children[1].innerHTML = item.scale_degrees[0]+'<sup>'+item.chord_progression_short[0]+'</sup>';
             tr.children[2].innerHTML = item.scale_degrees[1]+'<sup>'+item.chord_progression_short[1]+'</sup>';
