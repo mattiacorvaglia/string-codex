@@ -51,7 +51,7 @@
               </div>
               <div class="form-check form-switch ms-2 ms-auto">
                 <input class="form-check-input" type="checkbox" role="switch" id="switchShorthand" switch>
-                <label class="form-check-label" for="switchShorthand">Short format</label>
+                <label class="form-check-label" for="switchShorthand">Short notation</label>
               </div>
             </form>
           </div>
@@ -249,7 +249,6 @@
   <!-- Javascripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script language="javascript">
-    // vars
     const MODES = [
       {
         "name": "ionian (major)",
@@ -460,8 +459,7 @@
         "chord_progression": [ "m7(♭5)", "m(maj7)", "m7", "maj7(♯5)", "7", "7", "m7(♭5)" ],
         "chord_progression_short": [ "∅", "-(Δ7)", "-7", "Δ7(♯5)", "7", "7", "∅" ]
       }
-    ]
-
+    ];
     const NOTES_SHARP = [ "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B" ];
     const NOTES_FLAT = [ "C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B" ];
     const ROMAN_NUMBER = [ "I", "II", "III", "IV", "V", "VI", "VII" ];
@@ -546,11 +544,7 @@
     }
 
     function toggleFlat() {
-      if (SWITCH_FLAT) {
-        NOTES = NOTES_FLAT;
-      } else {
-        NOTES = NOTES_SHARP;
-      }
+      NOTES = SWITCH_FLAT ? NOTES_FLAT : NOTES_SHARP;
       createRootSelect();
     }
 
@@ -569,7 +563,6 @@
         colScale.getElementsByClassName('card-header')[0].textContent = mode.intervals[i];
         colScale.getElementsByTagName('p')[0].innerHTML = wrapAccidentalsInSup(res[i]);
         fragmentDegrees.appendChild(colScale);
-        
         const colChord = template.content.firstElementChild.cloneNode(true);
         colChord.getElementsByClassName('card-header')[0].textContent = mode.degree_quality[i];
         if (CHORD_NOTATION_SHORT) {
@@ -579,11 +572,9 @@
         }
         fragmentChords.appendChild(colChord);
       }
-      
       const el = document.getElementById('scale_degrees_content');
       el.innerHTML = "";
       el.appendChild(fragmentDegrees);
-      
       const el2 = document.getElementById('scale_chords_content');
       el2.innerHTML = "";
       el2.appendChild(fragmentChords);
@@ -597,42 +588,27 @@
       const cmd = CHEATSHEET_IDS[(SHOW_SCALE-1)];
       const template = document.getElementById('cheatsheet_tmpl');
       const fragment = new DocumentFragment();
-
       for (let i = 0; i < 21; i++) {
         let item = MODES[i];
-
         if (CHORD_QUALITY == 2 && !item.maj) { continue; }
         if (CHORD_QUALITY == 3 && item.maj) { continue; }
-
         item.scale_degrees = generateScale(NOTES[(ROOT_MULTI_SCALE-1)], item.formula);
         const tr = template.content.firstElementChild.cloneNode(true);
         tr.children[0].textContent = item.name;
         if (SHOW_SCALE == 5) {
           if (CHORD_NOTATION_SHORT) {
-            tr.children[1].innerHTML = item.scale_degrees[0]+'<sup>'+item.chord_progression_short[0]+'</sup>';
-            tr.children[2].innerHTML = item.scale_degrees[1]+'<sup>'+item.chord_progression_short[1]+'</sup>';
-            tr.children[3].innerHTML = item.scale_degrees[2]+'<sup>'+item.chord_progression_short[2]+'</sup>';
-            tr.children[4].innerHTML = item.scale_degrees[3]+'<sup>'+item.chord_progression_short[3]+'</sup>';
-            tr.children[5].innerHTML = item.scale_degrees[4]+'<sup>'+item.chord_progression_short[4]+'</sup>';
-            tr.children[6].innerHTML = item.scale_degrees[5]+'<sup>'+item.chord_progression_short[5]+'</sup>';
-            tr.children[7].innerHTML = item.scale_degrees[6]+'<sup>'+item.chord_progression_short[6]+'</sup>';
+            for (let l = 0; l < NOTE_LETTERS.length; l++) {
+              tr.children[l+1].innerHTML = item.scale_degrees[l]+'<sup>'+item.chord_progression_short[l]+'</sup>';
+            }
           } else {
-            tr.children[1].textContent = item.scale_degrees[0]+item.chord_progression[0];
-            tr.children[2].textContent = item.scale_degrees[1]+item.chord_progression[1];
-            tr.children[3].textContent = item.scale_degrees[2]+item.chord_progression[2];
-            tr.children[4].textContent = item.scale_degrees[3]+item.chord_progression[3];
-            tr.children[5].textContent = item.scale_degrees[4]+item.chord_progression[4];
-            tr.children[6].textContent = item.scale_degrees[5]+item.chord_progression[5];
-            tr.children[7].textContent = item.scale_degrees[6]+item.chord_progression[6];
+            for (let m = 0; m < NOTE_LETTERS.length; m++) {
+              tr.children[m+1].textContent = item.scale_degrees[m]+item.chord_progression[m];
+            }
           }
         } else {
-          tr.children[1].textContent = item[cmd][0];
-          tr.children[2].textContent = item[cmd][1];
-          tr.children[3].textContent = item[cmd][2];
-          tr.children[4].textContent = item[cmd][3];
-          tr.children[5].textContent = item[cmd][4];
-          tr.children[6].textContent = item[cmd][5];
-          tr.children[7].textContent = item[cmd][6];
+          for (let n = 0; n < NOTE_LETTERS.length; n++) {
+            tr.children[n+1].textContent = item[cmd][n];
+          }
         }
         fragment.appendChild(tr);
       }
@@ -652,42 +628,34 @@
       const letter = note[0];
       const accidentals = note.slice(1);
       let accidentalValue = 0;
-
       for (const char of accidentals) {
-        if (char === "♯") accidentalValue += 1;
-        if (char === "♭") accidentalValue -= 1;
-        if (char === "𝄪") accidentalValue += 2;
-        if (char === "𝄫") accidentalValue -= 2;
+        if (char === "♯") { accidentalValue += 1 };
+        if (char === "♭") { accidentalValue -= 1 };
+        if (char === "𝄪") { accidentalValue += 2 };
+        if (char === "𝄫") { accidentalValue -= 2 };
       }
-
       const semitone = (NATURAL_SEMITONES[letter] + accidentalValue + 12) % 12;
-
       return { letter, semitone };
     }
-
     // Replace accidentals
     function accidentalString(offset) {
-      if (offset === 0) return "";
-
+      if (offset === 0) { return "" };
       if (offset > 0) {
-        if (offset === 2) return "𝄪";
+        if (offset === 2) { return "𝄪" };
         return "♯".repeat(offset);
       }
-
       if (offset < 0) {
-        if (offset === -2) return "𝄫";
+        if (offset === -2) { return "𝄫" };
         return "♭".repeat(Math.abs(offset));
       }
     }
 
     // Generate scale from root note and interval formula in semitones
     function generateScale(root, formula) {
-
       const parsedRoot = parseNote(root);
       const scale = [root];
       let currentSemitone = parsedRoot.semitone;
       let currentLetterIndex = NOTE_LETTERS.indexOf(parsedRoot.letter);
-
       for (let i = 0; i < formula.length - 1; i++) {
         currentSemitone = (currentSemitone + formula[i]) % 12;
         currentLetterIndex = (currentLetterIndex + 1) % 7;
@@ -695,11 +663,10 @@
         const naturalSemitone = NATURAL_SEMITONES[targetLetter];
         let diff = (currentSemitone - naturalSemitone + 12) % 12;
         // normalize to range [-6, +6]
-        if (diff > 6) diff -= 12;
+        if (diff > 6) { diff -= 12 };
         const note = targetLetter + accidentalString(diff);
         scale.push(note);
       }
-
       return scale;
     }
 
