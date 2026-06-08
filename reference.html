@@ -55,16 +55,16 @@
   </nav>
 
   <!-- ============================================================= -->
-  <div class="container">
+  <div class="container-md">
     <div class="row">
 
       <!-- ============================================================= -->
       <div class="col-md-2 mb-3">
         <div class="list-group shadow mb-3" role="tablist" id="menu_list" >
           <a class="list-group-item list-group-item-action text-capitalize active" id="tab_1" data-bs-toggle="tab" data-bs-target="#major_scale" type="button" role="tab" aria-controls="major_scale" aria-selected="true">Major Scale</a>
+          <a class="list-group-item list-group-item-action text-capitalize" id="tab_2" data-bs-toggle="tab" data-bs-target="#major_modes" type="button" role="tab" aria-controls="major_modes" aria-selected="true">Major Modes</a>
           <a class="list-group-item list-group-item-action text-capitalize" id="tab_5" data-bs-toggle="tab" data-bs-target="#minor_scale" type="button" role="tab" aria-controls="minor_scale" aria-selected="true">Minor Scales</a>
-          <a class="list-group-item list-group-item-action text-capitalize" id="tab_2" data-bs-toggle="tab" data-bs-target="#modes_pattern" type="button" role="tab" aria-controls="modes_pattern" aria-selected="true">Modes</a>
-          <a class="list-group-item list-group-item-action text-capitalize" id="tab_3" data-bs-toggle="tab" data-bs-target="#arpeggios" type="button" role="tab" aria-controls="multiple_scales" aria-selected="false">Arpeggios</a>
+          <a class="list-group-item list-group-item-action text-capitalize" id="tab_3" data-bs-toggle="tab" data-bs-target="#arpeggios" type="button" role="tab" aria-controls="multiple_scales" aria-selected="false">2-notes Arpeggios</a>
           <a class="list-group-item list-group-item-action text-capitalize" id="tab_4" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">About</a>
         </div>
       </div>
@@ -78,7 +78,7 @@
             <div class="card shadow mb-3">
               <div class="card-body p-4">
                 <p class="text-capitalize">Major Scale</p>
-                <p>3 notes per strings</p>
+                <!-- <p>3 notes per strings</p> -->
                 <div class="row text-center mb-3">
 
                   <div class="col-sm-6 mb-3">
@@ -190,7 +190,7 @@
             <div class="card shadow mb-3">
               <div class="card-body p-4">
                 <p class="text-capitalize">Minor Scales</p>
-                <p>3 notes per strings</p>
+                <!-- <p>3 notes per strings</p> -->
                 <div class="row text-center mb-3">
 
                   <div class="col-md-6 mb-3">
@@ -268,17 +268,17 @@
           </div>
 
           <!-- =========================================================== -->
-          <div class="tab-pane fade" role="tabpanel" aria-labelledby="tab_2" tabindex="0" id="modes_pattern">
+          <div class="tab-pane fade" role="tabpanel" aria-labelledby="tab_2" tabindex="0" id="major_modes">
             <div class="card shadow mb-3">
               <div class="card-body p-4">
-                <p class="text-capitalize">Modes</p>
-                <p class="">3 notes per strings</p>
+                <p class="text-capitalize">Major Modes</p>
+                <!-- <p class="">3 notes per strings</p> -->
                 <div class="row text-center mb-3">
 
                   <div class="col-sm-6 mb-3">
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">Ionian</p>
+                        <p class="text-capitalize">1. Ionian</p>
                         <p class="text-capitalize pb-4 mb-3">
                           <span class="badge rounded-pill text-bg-danger">1</span>
                           <span class="badge rounded-pill text-bg-secondary">2</span>
@@ -301,7 +301,7 @@
                   <div class="col-sm-6 mb-3">
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">Dorian</p>
+                        <p class="text-capitalize">2. Dorian</p>
                         <p class="text-capitalize pb-4 mb-3">
                           <span class="badge rounded-pill text-bg-danger">1</span>
                           <span class="badge rounded-pill text-bg-secondary">2</span>
@@ -324,7 +324,7 @@
                   <div class="col-sm-6 mb-3">
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">Phrygian</p>
+                        <p class="text-capitalize">3. Phrygian</p>
                         <p class="text-capitalize pb-4 mb-3">
                           <span class="badge rounded-pill text-bg-danger">1</span>
                           <span class="badge rounded-pill text-bg-primary">♭2</span>
@@ -347,7 +347,7 @@
                   <div class="col-sm-6 mb-3">
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">Lydian</p>
+                        <p class="text-capitalize">4. Lydian</p>
                         <p class="text-capitalize pb-4 mb-3">
                           <span class="badge rounded-pill text-bg-danger">1</span>
                           <span class="badge rounded-pill text-bg-secondary">2</span>
@@ -370,7 +370,7 @@
                   <div class="col-sm-6 mb-3">
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">Mixolydian</p>
+                        <p class="text-capitalize">5. Mixolydian</p>
                         <p class="text-capitalize pb-4 mb-3">
                           <span class="badge rounded-pill text-bg-danger">1</span>
                           <span class="badge rounded-pill text-bg-secondary">2</span>
@@ -393,7 +393,7 @@
                   <div class="col-sm-6 mb-3">
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">Aeolian</p>
+                        <p class="text-capitalize">6. Aeolian (Natural Minor)</p>
                         <p class="text-capitalize pb-4 mb-3">
                           <span class="badge rounded-pill text-bg-danger">1</span>
                           <span class="badge rounded-pill text-bg-secondary">2</span>
@@ -416,7 +416,7 @@
                   <div class="col-sm-6 mb-3">
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">Locrian</p>
+                        <p class="text-capitalize">7. Locrian</p>
                         <p class="text-capitalize pb-4 mb-3">
                           <span class="badge rounded-pill text-bg-danger">1</span>
                           <span class="badge rounded-pill text-bg-primary">♭2</span>
