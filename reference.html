@@ -16,17 +16,6 @@
     .list-group-item.active { background-color: var(--bs-light-bg-subtle); border-color: var(--bs-border-color); }
     /* ul { list-style-type: none; padding-left: 0; }
     ul>li::before { content: ">"; padding-right: 1em; } */
-    .badge {
-      display: inline-flex !important;
-      width: 20px;
-      height: 20px;
-      align-items: center;
-      justify-content: center;
-      padding: 0 !important;
-    }
-    .badge.text-bg-out {
-      background-color: transparent;
-    }
     .font-monospace {
       height: 22px;
     }
@@ -39,6 +28,35 @@
       height: 22px;
       overflow: hidden;
       white-space: nowrap;
+    }
+    .badge {
+      display: inline-flex !important;
+      width: 20px;
+      height: 20px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 !important;
+      border-radius: var(--bs-border-radius-pill)!important;
+    }
+    .badge.n1 {
+      color: #fff!important;
+      background-color: RGBA(var(--bs-danger-rgb),var(--bs-bg-opacity,1))!important;
+    }
+    .badge.n3 {
+      color: #fff!important;
+      background-color: RGBA(var(--bs-success-rgb),var(--bs-bg-opacity,1))!important;
+    }
+    .badge.n5 {
+      color: #000!important;
+      background-color: RGBA(var(--bs-warning-rgb),var(--bs-bg-opacity,1))!important;
+    }
+    .badge.n7, .badge.nalt {
+      color: #fff!important;
+      background-color: RGBA(var(--bs-primary-rgb),var(--bs-bg-opacity,1))!important;
+    }
+    .badge.nmaj {
+      color: #fff!important;
+      background-color: RGBA(var(--bs-secondary-rgb),var(--bs-bg-opacity,1))!important;
     }
   </style>
 </head>
@@ -62,8 +80,8 @@
       <div class="col-md-2 mb-3">
         <div class="list-group shadow mb-3" role="tablist" id="menu_list" >
           <a class="list-group-item list-group-item-action text-capitalize active" id="tab_1" data-bs-toggle="tab" data-bs-target="#major_scale" type="button" role="tab" aria-controls="major_scale" aria-selected="true">Major Scale</a>
-          <a class="list-group-item list-group-item-action text-capitalize" id="tab_2" data-bs-toggle="tab" data-bs-target="#major_modes" type="button" role="tab" aria-controls="major_modes" aria-selected="true">Major Modes</a>
           <a class="list-group-item list-group-item-action text-capitalize" id="tab_5" data-bs-toggle="tab" data-bs-target="#minor_scale" type="button" role="tab" aria-controls="minor_scale" aria-selected="true">Minor Scales</a>
+          <a class="list-group-item list-group-item-action text-capitalize" id="tab_2" data-bs-toggle="tab" data-bs-target="#major_modes" type="button" role="tab" aria-controls="major_modes" aria-selected="true">Modes</a>
           <a class="list-group-item list-group-item-action text-capitalize" id="tab_3" data-bs-toggle="tab" data-bs-target="#arpeggios" type="button" role="tab" aria-controls="multiple_scales" aria-selected="false">2-notes Arpeggios</a>
           <a class="list-group-item list-group-item-action text-capitalize" id="tab_4" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">About</a>
         </div>
@@ -85,12 +103,12 @@
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
                         <p class="text-capitalize">Root</p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">2</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">3</span>─┬─<span class="badge rounded-pill text-bg-secondary">4</span>─┬─<span class="fret"></span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">2</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">2</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">3</span>─┬─<span class="badge nmaj">4</span>─┬─<span class="fret"></span>─┐</p>
+                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">A ├─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">2</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                       </div>
                     </div>
                   </div>
@@ -99,12 +117,12 @@
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
                         <p class="text-capitalize">Major 2nd</p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">3</span>─┬─<span class="badge rounded-pill text-bg-secondary">4</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">5</span>─┬─<span class="fret"></span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-primary">2</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">3</span>─┴─<span class="badge rounded-pill text-bg-secondary">4</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">3</span>─┬─<span class="badge nmaj">4</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">5</span>─┬─<span class="fret"></span>─┐</p>
+                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">G ├─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">D ├─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">A ├─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">E └─<span class="badge nalt">2</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">3</span>─┴─<span class="badge nmaj">4</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                       </div>
                     </div>
                   </div>
@@ -113,12 +131,12 @@
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
                         <p class="text-capitalize">Major 3rd</p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">4</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">5</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">6</span>─┬─<span class="fret"></span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-primary">3</span>─┴─<span class="badge rounded-pill text-bg-secondary">4</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">5</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="badge nmaj">4</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">5</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">6</span>─┬─<span class="fret"></span>─┐</p>
+                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">G ├─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">D ├─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">A ├─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">E └─<span class="badge nalt">3</span>─┴─<span class="badge nmaj">4</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">5</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                       </div>
                     </div>
                   </div>
@@ -127,12 +145,12 @@
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
                         <p class="text-capitalize">Perfect 4th</p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">5</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">6</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">7</span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-primary">4</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">5</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">6</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">5</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">6</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">7</span>─┐</p>
+                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">E └─<span class="badge nalt">4</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">5</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">6</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                       </div>
                     </div>
                   </div>
@@ -141,12 +159,12 @@
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
                         <p class="text-capitalize">Perfect 5th</p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">6</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">7</span>─┬─<span class="badge rounded-pill text-bg-danger">1</span>─┬─<span class="fret"></span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-primary">5</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">6</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">7</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">6</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">7</span>─┬─<span class="badge n1">1</span>─┬─<span class="fret"></span>─┐</p>
+                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">D ├─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">A ├─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">E └─<span class="badge nalt">5</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">6</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">7</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                       </div>
                     </div>
                   </div>
@@ -155,12 +173,12 @@
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
                         <p class="text-capitalize">Major 6th</p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">7</span>─┬─<span class="badge rounded-pill text-bg-danger">1</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">2</span>─┬─<span class="fret"></span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-primary">6</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">7</span>─┴─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">7</span>─┬─<span class="badge n1">1</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">2</span>─┬─<span class="fret"></span>─┐</p>
+                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">G ├─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">D ├─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">A ├─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">E └─<span class="badge nalt">6</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">7</span>─┴─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                       </div>
                     </div>
                   </div>
@@ -169,12 +187,12 @@
                     <div class="card shadow">
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
                         <p class="text-capitalize">Major 7th</p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-danger">1</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">2</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">3</span>─┬─<span class="fret"></span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-primary">7</span>─┴─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">2</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="badge n1">1</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">2</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">3</span>─┬─<span class="fret"></span>─┐</p>
+                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">G ├─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">D ├─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">A ├─<span class="badge nmaj">3</span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">E └─<span class="badge nalt">7</span>─┴─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">2</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                       </div>
                     </div>
                   </div>
@@ -198,20 +216,20 @@
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
                         <p class="text-capitalize">Natural Minor</p>
                         <p class="text-capitalize pb-4 mb-3">
-                          <span class="badge rounded-pill text-bg-danger">1</span>
-                          <span class="badge rounded-pill text-bg-secondary">2</span>
-                          <span class="badge rounded-pill text-bg-primary">♭3</span>
-                          <span class="badge rounded-pill text-bg-secondary">4</span>
-                          <span class="badge rounded-pill text-bg-secondary">5</span>
-                          <span class="badge rounded-pill text-bg-primary">♭6</span>
-                          <span class="badge rounded-pill text-bg-primary">♭7</span>
+                          <span class="badge n1">1</span>
+                          <span class="badge nmaj">2</span>
+                          <span class="badge nalt">♭3</span>
+                          <span class="badge nmaj">4</span>
+                          <span class="badge nmaj">5</span>
+                          <span class="badge nalt">♭6</span>
+                          <span class="badge nalt">♭7</span>
                         </p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">2</span>─┬─<span class="badge rounded-pill text-bg-primary">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">4</span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="badge rounded-pill text-bg-primary">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="badge rounded-pill text-bg-primary">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">2</span>─┴─<span class="badge rounded-pill text-bg-primary">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">2</span>─┬─<span class="badge nalt">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">4</span>─┐</p>
+                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge nalt">♭6</span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┤</p>
+                        <p class="font-monospace m-0">G ├─<span class="badge nalt">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">D ├─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">A ├─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="badge nalt">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">2</span>─┴─<span class="badge nalt">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                       </div>
                     </div>
                   </div>
@@ -221,20 +239,20 @@
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
                         <p class="text-capitalize">Harmonic Minor</p>
                         <p class="text-capitalize pb-4 mb-3">
-                          <span class="badge rounded-pill text-bg-danger">1</span>
-                          <span class="badge rounded-pill text-bg-secondary">2</span>
-                          <span class="badge rounded-pill text-bg-primary">♭3</span>
-                          <span class="badge rounded-pill text-bg-secondary">4</span>
-                          <span class="badge rounded-pill text-bg-secondary">5</span>
-                          <span class="badge rounded-pill text-bg-primary">♭6</span>
-                          <span class="badge rounded-pill text-bg-secondary">7</span>
+                          <span class="badge n1">1</span>
+                          <span class="badge nmaj">2</span>
+                          <span class="badge nalt">♭3</span>
+                          <span class="badge nmaj">4</span>
+                          <span class="badge nmaj">5</span>
+                          <span class="badge nalt">♭6</span>
+                          <span class="badge nmaj">7</span>
                         </p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">2</span>─┬─<span class="badge rounded-pill text-bg-primary">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">4</span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="badge rounded-pill text-bg-primary">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="badge rounded-pill text-bg-primary">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">2</span>─┴─<span class="badge rounded-pill text-bg-primary">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">2</span>─┬─<span class="badge nalt">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">4</span>─┐</p>
+                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge nalt">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┤</p>
+                        <p class="font-monospace m-0">G ├─<span class="badge nalt">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">A ├─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="badge nalt">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">2</span>─┴─<span class="badge nalt">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                       </div>
                     </div>
                   </div>
@@ -244,20 +262,20 @@
                       <div class="card-body overflow-auto text-nowrap p-4 mb-3">
                         <p class="text-capitalize">Melodic Minor</p>
                         <p class="text-capitalize pb-4 mb-3">
-                          <span class="badge rounded-pill text-bg-danger">1</span>
-                          <span class="badge rounded-pill text-bg-secondary">2</span>
-                          <span class="badge rounded-pill text-bg-primary">♭3</span>
-                          <span class="badge rounded-pill text-bg-secondary">4</span>
-                          <span class="badge rounded-pill text-bg-secondary">5</span>
-                          <span class="badge rounded-pill text-bg-secondary">6</span>
-                          <span class="badge rounded-pill text-bg-secondary">7</span>
+                          <span class="badge n1">1</span>
+                          <span class="badge nmaj">2</span>
+                          <span class="badge nalt">♭3</span>
+                          <span class="badge nmaj">4</span>
+                          <span class="badge nmaj">5</span>
+                          <span class="badge nmaj">6</span>
+                          <span class="badge nmaj">7</span>
                         </p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">2</span>─┬─<span class="badge rounded-pill text-bg-primary">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">4</span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="badge rounded-pill text-bg-primary">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">2</span>─┴─<span class="badge rounded-pill text-bg-primary">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">2</span>─┬─<span class="badge nalt">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">4</span>─┐</p>
+                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┤</p>
+                        <p class="font-monospace m-0">G ├─<span class="badge nalt">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">A ├─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┤</p>
+                        <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">2</span>─┴─<span class="badge nalt">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                       </div>
                     </div>
                   </div>
@@ -269,177 +287,269 @@
 
           <!-- =========================================================== -->
           <div class="tab-pane fade" role="tabpanel" aria-labelledby="tab_2" tabindex="0" id="major_modes">
-            <div class="card shadow mb-3">
+
+            <!-- ============================================================= -->
+            <nav class="nav nav-tabs nav-justified shadow" role="tablist" id="tab-modes">
+              <button class="nav-link text-reset active" href="#major" role="tab" id="tab-major" data-bs-toggle="tab" data-bs-target="#tab-modes-major" type="button" aria-controls="tab-modes-major" aria-selected="true">Major</button>
+              <button class="nav-link text-reset" href="#harmonicminor" role="tab" id="tab-harmonicminor" data-bs-toggle="tab" data-bs-target="#tab-modes-harmonicminor" type="button" aria-controls="tab-modes-harmonicminor" aria-selected="false">Harmonic Minor</button>
+              <button class="nav-link text-reset" href="#melodicminor" role="tab" id="teb-melodicminor" data-bs-toggle="tab" data-bs-target="#tab-modes-melodicminor" type="button" aria-controls="tab-modes-melodicminor" aria-selected="false">Melodic Minor</button>
+            </nav>
+
+            <!-- ============================================================= -->
+            <div class="card flex-fill border-top-0 rounded-top-0 shadow mb-3">
               <div class="card-body p-4">
-                <p class="text-capitalize">Major Modes</p>
-                <!-- <p class="">3 notes per strings</p> -->
-                <div class="row text-center mb-3">
+                <div class="tab-content" id="tab_modes_content">
 
-                  <div class="col-sm-6 mb-3">
-                    <div class="card shadow">
-                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">1. Ionian</p>
-                        <p class="text-capitalize pb-4 mb-3">
-                          <span class="badge rounded-pill text-bg-danger">1</span>
-                          <span class="badge rounded-pill text-bg-secondary">2</span>
-                          <span class="badge rounded-pill text-bg-secondary">3</span>
-                          <span class="badge rounded-pill text-bg-secondary">4</span>
-                          <span class="badge rounded-pill text-bg-secondary">5</span>
-                          <span class="badge rounded-pill text-bg-secondary">6</span>
-                          <span class="badge rounded-pill text-bg-secondary">7</span>
-                        </p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">2</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">3</span>─┬─<span class="badge rounded-pill text-bg-secondary">4</span>─┬─<span class="fret"></span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">2</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                  <!-- ============================================================= -->
+                  <div class="tab-pane fade show active" id="tab-modes-major" role="tabpanel" aria-labelledby="major" tabindex="0">
+
+                    <!-- <p class="text-capitalize">Major Modes</p> -->
+                    <!-- <p class="">3 notes per strings</p> -->
+                    <div class="row text-center mb-3">
+
+                      <div class="col-sm-6 mb-3">
+                        <div class="card shadow">
+                          
+                          <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                            <p class="text-capitalize">1. Ionian (Major)</p>
+                            <p class="text-capitalize pb-4 mb-3">
+                              <span class="badge n1">1</span>
+                              <span class="badge nmaj">2</span>
+                              <span class="badge nmaj">3</span>
+                              <span class="badge nmaj">4</span>
+                              <span class="badge nmaj">5</span>
+                              <span class="badge nmaj">6</span>
+                              <span class="badge nmaj">7</span>
+                            </p>
+                            <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">2</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">3</span>─┬─<span class="badge nmaj">4</span>─┬─<span class="fret"></span>─┐</p>
+                            <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">A ├─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">2</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                          </div>
+                        </div>
                       </div>
+                      
+                      <div class="col-sm-6 mb-3">
+                        <div class="card shadow">
+                          <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                            <p class="text-capitalize">2. Dorian</p>
+                            <p class="text-capitalize pb-4 mb-3">
+                              <span class="badge n1">1</span>
+                              <span class="badge nmaj">2</span>
+                              <span class="badge nalt">♭3</span>
+                              <span class="badge nmaj">4</span>
+                              <span class="badge nmaj">5</span>
+                              <span class="badge nmaj">6</span>
+                              <span class="badge nalt">♭7</span>
+                            </p>
+                            <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">2</span>─┬─<span class="badge nalt">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">4</span>─┬─<span class="fret"></span>─┐</p>
+                            <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">G ├─<span class="badge nalt">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">D ├─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">A ├─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">2</span>─┴─<span class="badge nalt">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="col-sm-6 mb-3">
+                        <div class="card shadow">
+                          <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                            <p class="text-capitalize">3. Phrygian</p>
+                            <p class="text-capitalize pb-4 mb-3">
+                              <span class="badge n1">1</span>
+                              <span class="badge nalt">♭2</span>
+                              <span class="badge nalt">♭3</span>
+                              <span class="badge nmaj">4</span>
+                              <span class="badge nmaj">5</span>
+                              <span class="badge nalt">♭6</span>
+                              <span class="badge nalt">♭7</span>
+                            </p>
+                            <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="badge nalt">♭2</span>─┬─<span class="fret"></span>─┬─<span class="badge nalt">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">4</span>─┬─<span class="fret"></span>─┐</p>
+                            <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge nalt">♭6</span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">G ├─<span class="badge nalt">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">D ├─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="badge nalt">♭2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">A ├─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="badge nalt">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="badge nalt">♭2</span>─┴─<span class="fret"></span>─┴─<span class="badge nalt">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="col-sm-6 mb-3">
+                        <div class="card shadow">
+                          <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                            <p class="text-capitalize">4. Lydian</p>
+                            <p class="text-capitalize pb-4 mb-3">
+                              <span class="badge n1">1</span>
+                              <span class="badge nmaj">2</span>
+                              <span class="badge nmaj">3</span>
+                              <span class="badge nalt">♯4</span>
+                              <span class="badge nmaj">5</span>
+                              <span class="badge nmaj">6</span>
+                              <span class="badge nmaj">7</span>
+                            </p>
+                            <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">2</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">3</span>─┬─<span class="fret"></span>─┬─<span class="badge nalt">♯4</span>─┐</p>
+                            <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♯4</span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="badge nalt">♯4</span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">2</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="col-sm-6 mb-3">
+                        <div class="card shadow">
+                          <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                            <p class="text-capitalize">5. Mixolydian</p>
+                            <p class="text-capitalize pb-4 mb-3">
+                              <span class="badge n1">1</span>
+                              <span class="badge nmaj">2</span>
+                              <span class="badge nmaj">3</span>
+                              <span class="badge nmaj">4</span>
+                              <span class="badge nmaj">5</span>
+                              <span class="badge nmaj">6</span>
+                              <span class="badge nalt">♭7</span>
+                            </p>
+                            <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">2</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">3</span>─┬─<span class="badge nmaj">4</span>─┬─<span class="fret"></span>─┐</p>
+                            <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge nmaj">3</span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">D ├─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">A ├─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">2</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="col-sm-6 mb-3">
+                        <div class="card shadow">
+                          <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                            <p class="text-capitalize">6. Aeolian (Natural Minor)</p>
+                            <p class="text-capitalize pb-4 mb-3">
+                              <span class="badge n1">1</span>
+                              <span class="badge nmaj">2</span>
+                              <span class="badge nalt">♭3</span>
+                              <span class="badge nmaj">4</span>
+                              <span class="badge nmaj">5</span>
+                              <span class="badge nalt">♭6</span>
+                              <span class="badge nalt">♭7</span>
+                            </p>
+                            <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">2</span>─┬─<span class="badge nalt">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">4</span>─┬─<span class="fret"></span>─┐</p>
+                            <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge nalt">♭6</span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">G ├─<span class="badge nalt">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">D ├─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">A ├─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="badge nalt">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">2</span>─┴─<span class="badge nalt">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="col-sm-6 mb-3">
+                        <div class="card shadow">
+                          <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                            <p class="text-capitalize">7. Locrian</p>
+                            <p class="text-capitalize pb-4 mb-3">
+                              <span class="badge n1">1</span>
+                              <span class="badge nalt">♭2</span>
+                              <span class="badge nalt">♭3</span>
+                              <span class="badge nmaj">4</span>
+                              <span class="badge nalt">♭5</span>
+                              <span class="badge nalt">♭6</span>
+                              <span class="badge nalt">♭7</span>
+                            </p>
+                            <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="badge nalt">♭2</span>─┬─<span class="fret"></span>─┬─<span class="badge nalt">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">4</span>─┬─<span class="fret"></span>─┐</p>
+                            <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge nalt">♭6</span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">G ├─<span class="badge nalt">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">4</span>─┼─<span class="badge nalt">♭5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">D ├─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="badge nalt">♭2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">A ├─<span class="badge nmaj">4</span>─┼─<span class="badge nalt">♭5</span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="badge nalt">♭2</span>─┴─<span class="fret"></span>─┴─<span class="badge nalt">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                          </div>
+                        </div>
+                      </div>
+
                     </div>
+
                   </div>
-                  
-                  <div class="col-sm-6 mb-3">
-                    <div class="card shadow">
-                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">2. Dorian</p>
-                        <p class="text-capitalize pb-4 mb-3">
-                          <span class="badge rounded-pill text-bg-danger">1</span>
-                          <span class="badge rounded-pill text-bg-secondary">2</span>
-                          <span class="badge rounded-pill text-bg-primary">♭3</span>
-                          <span class="badge rounded-pill text-bg-secondary">4</span>
-                          <span class="badge rounded-pill text-bg-secondary">5</span>
-                          <span class="badge rounded-pill text-bg-secondary">6</span>
-                          <span class="badge rounded-pill text-bg-primary">♭7</span>
-                        </p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">2</span>─┬─<span class="badge rounded-pill text-bg-primary">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">4</span>─┬─<span class="fret"></span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="badge rounded-pill text-bg-primary">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">2</span>─┴─<span class="badge rounded-pill text-bg-primary">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+
+
+                  <!-- ============================================================= -->
+                  <div class="tab-pane fade" id="tab-modes-harmonicminor" role="tabpanel" aria-labelledby="harmonicminor" tabindex="0">
+
+                    <!-- <p class="text-capitalize">Major Modes</p> -->
+                    <!-- <p class="">3 notes per strings</p> -->
+                    <div class="row text-center mb-3">
+
+                      <div class="col-sm-6 mb-3">
+                        <div class="card shadow">
+                          
+                          <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                            <p class="text-capitalize">1. Harmonic Minor</p>
+                            <p class="text-capitalize pb-4 mb-3">
+                              <span class="badge n1">1</span>
+                              <span class="badge nmaj">2</span>
+                              <span class="badge nalt">♭3</span>
+                              <span class="badge nmaj">4</span>
+                              <span class="badge nmaj">5</span>
+                              <span class="badge nalt">♭6</span>
+                              <span class="badge nmaj">7</span>
+                            </p>
+                            <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">2</span>─┬─<span class="badge nalt">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">4</span>─┐</p>
+                            <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge nalt">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┤</p>
+                            <p class="font-monospace m-0">G ├─<span class="badge nalt">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">A ├─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="badge nalt">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">2</span>─┴─<span class="badge nalt">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  
-                  <div class="col-sm-6 mb-3">
-                    <div class="card shadow">
-                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">3. Phrygian</p>
-                        <p class="text-capitalize pb-4 mb-3">
-                          <span class="badge rounded-pill text-bg-danger">1</span>
-                          <span class="badge rounded-pill text-bg-primary">♭2</span>
-                          <span class="badge rounded-pill text-bg-primary">♭3</span>
-                          <span class="badge rounded-pill text-bg-secondary">4</span>
-                          <span class="badge rounded-pill text-bg-secondary">5</span>
-                          <span class="badge rounded-pill text-bg-primary">♭6</span>
-                          <span class="badge rounded-pill text-bg-primary">♭7</span>
-                        </p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-primary">♭2</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-primary">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">4</span>─┬─<span class="fret"></span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="badge rounded-pill text-bg-primary">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="badge rounded-pill text-bg-primary">♭2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="badge rounded-pill text-bg-primary">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="badge rounded-pill text-bg-primary">♭2</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-primary">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="col-sm-6 mb-3">
-                    <div class="card shadow">
-                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">4. Lydian</p>
-                        <p class="text-capitalize pb-4 mb-3">
-                          <span class="badge rounded-pill text-bg-danger">1</span>
-                          <span class="badge rounded-pill text-bg-secondary">2</span>
-                          <span class="badge rounded-pill text-bg-secondary">3</span>
-                          <span class="badge rounded-pill text-bg-primary">♯4</span>
-                          <span class="badge rounded-pill text-bg-secondary">5</span>
-                          <span class="badge rounded-pill text-bg-secondary">6</span>
-                          <span class="badge rounded-pill text-bg-secondary">7</span>
-                        </p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">2</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">3</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-primary">♯4</span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♯4</span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♯4</span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">2</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="col-sm-6 mb-3">
-                    <div class="card shadow">
-                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">5. Mixolydian</p>
-                        <p class="text-capitalize pb-4 mb-3">
-                          <span class="badge rounded-pill text-bg-danger">1</span>
-                          <span class="badge rounded-pill text-bg-secondary">2</span>
-                          <span class="badge rounded-pill text-bg-secondary">3</span>
-                          <span class="badge rounded-pill text-bg-secondary">4</span>
-                          <span class="badge rounded-pill text-bg-secondary">5</span>
-                          <span class="badge rounded-pill text-bg-secondary">6</span>
-                          <span class="badge rounded-pill text-bg-primary">♭7</span>
-                        </p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">2</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">3</span>─┬─<span class="badge rounded-pill text-bg-secondary">4</span>─┬─<span class="fret"></span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">3</span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">2</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="col-sm-6 mb-3">
-                    <div class="card shadow">
-                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">6. Aeolian (Natural Minor)</p>
-                        <p class="text-capitalize pb-4 mb-3">
-                          <span class="badge rounded-pill text-bg-danger">1</span>
-                          <span class="badge rounded-pill text-bg-secondary">2</span>
-                          <span class="badge rounded-pill text-bg-primary">♭3</span>
-                          <span class="badge rounded-pill text-bg-secondary">4</span>
-                          <span class="badge rounded-pill text-bg-secondary">5</span>
-                          <span class="badge rounded-pill text-bg-primary">♭6</span>
-                          <span class="badge rounded-pill text-bg-primary">♭7</span>
-                        </p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">2</span>─┬─<span class="badge rounded-pill text-bg-primary">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">4</span>─┬─<span class="fret"></span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="badge rounded-pill text-bg-primary">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">5</span>─┼─<span class="badge rounded-pill text-bg-primary">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-secondary">2</span>─┴─<span class="badge rounded-pill text-bg-primary">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="col-sm-6 mb-3">
-                    <div class="card shadow">
-                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
-                        <p class="text-capitalize">7. Locrian</p>
-                        <p class="text-capitalize pb-4 mb-3">
-                          <span class="badge rounded-pill text-bg-danger">1</span>
-                          <span class="badge rounded-pill text-bg-primary">♭2</span>
-                          <span class="badge rounded-pill text-bg-primary">♭3</span>
-                          <span class="badge rounded-pill text-bg-secondary">4</span>
-                          <span class="badge rounded-pill text-bg-primary">♭5</span>
-                          <span class="badge rounded-pill text-bg-primary">♭6</span>
-                          <span class="badge rounded-pill text-bg-primary">♭7</span>
-                        </p>
-                        <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-primary">♭2</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-primary">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-secondary">4</span>─┬─<span class="fret"></span>─┐</p>
-                        <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭6</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">G ├─<span class="badge rounded-pill text-bg-primary">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="badge rounded-pill text-bg-primary">♭5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="badge rounded-pill text-bg-primary">♭2</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">A ├─<span class="badge rounded-pill text-bg-secondary">4</span>─┼─<span class="badge rounded-pill text-bg-primary">♭5</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭6</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                        <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="badge rounded-pill text-bg-primary">♭2</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-primary">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
-                      </div>
+
                     </div>
                   </div>
 
+
+                  <!-- ============================================================= -->
+                  <div class="tab-pane fade" id="tab-modes-melodicminor" role="tabpanel" aria-labelledby="melodicminor" tabindex="0">
+
+                    <!-- <p class="text-capitalize">Major Modes</p> -->
+                    <!-- <p class="">3 notes per strings</p> -->
+                    <div class="row text-center mb-3">
+
+                      <div class="col-sm-6 mb-3">
+                        <div class="card shadow">
+                          
+                          <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                            <p class="text-capitalize">1. Melodic Minor</p>
+                            <p class="text-capitalize pb-4 mb-3">
+                              <span class="badge n1">1</span>
+                              <span class="badge nmaj">2</span>
+                              <span class="badge nalt">♭3</span>
+                              <span class="badge nmaj">4</span>
+                              <span class="badge nmaj">5</span>
+                              <span class="badge nmaj">6</span>
+                              <span class="badge nmaj">7</span>
+                            </p>
+                            <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">2</span>─┬─<span class="badge nalt">♭3</span>─┬─<span class="fret"></span>─┬─<span class="badge nmaj">4</span>─┐</p>
+                            <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┤</p>
+                            <p class="font-monospace m-0">G ├─<span class="badge nalt">♭3</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge nmaj">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">2</span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">A ├─<span class="badge nmaj">4</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">5</span>─┼─<span class="fret"></span>─┼─<span class="badge nmaj">6</span>─┼─<span class="fret"></span>─┤</p>
+                            <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="badge nmaj">2</span>─┴─<span class="badge nalt">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  
+
+                <!-- ============================================================= -->
                 </div>
-
               </div>
             </div>
+
+          <!-- ============================================================= -->
           </div>
 
           <!-- =========================================================== -->
@@ -474,19 +584,19 @@
                             <div class="row">
                               <div class="col-lg-3 col-sm-6 overflow-auto text-nowrap mb-3">
                                 <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">B ├─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge n3">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge nalt">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
                                 <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                               <div class="col-lg-9 col-sm-6 overflow-auto text-nowrap mb-3">
-                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-warning">5</span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-primary">7</span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-success">3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge n5">5</span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nalt">7</span>─┐</p>
+                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge n3">3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                             </div>
 
@@ -499,19 +609,19 @@
                             <div class="row">
                               <div class="col-lg-3 col-sm-6 overflow-auto text-nowrap mb-3">
                                 <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">7</span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">7</span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
                                 <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-success">3</span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge n3">3</span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                               <div class="col-lg-9 col-sm-6 overflow-auto text-nowrap mb-3">
-                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-primary">7</span>─┬─<span class="badge rounded-pill text-bg-danger">1</span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-success">3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-warning">5</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nalt">7</span>─┬─<span class="badge n1">1</span>─┬─<span class="fret"></span>─┐</p>
+                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge n3">3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge n5">5</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                             </div>
 
@@ -524,19 +634,19 @@
                             <div class="row">
                               <div class="col-lg-3 col-sm-6 overflow-auto text-nowrap mb-3">
                                 <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">7</span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">B ├─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">7</span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge n3">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
                                 <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-warning">5</span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge n5">5</span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                               <div class="col-lg-9 col-sm-6 overflow-auto text-nowrap mb-3">
-                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-danger">1</span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-success">3</span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">7</span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-warning">5</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-primary">7</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge n1">1</span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge n3">3</span>─┐</p>
+                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">7</span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge n5">5</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge nalt">7</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                             </div>
 
@@ -549,19 +659,19 @@
                             <div class="row">
                               <div class="col-lg-3 col-sm-6 overflow-auto text-nowrap mb-3">
                                 <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="badge rounded-pill text-bg-success">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">B ├─<span class="badge n3">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
                                 <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-primary">7</span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge nalt">7</span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                               <div class="col-lg-9 col-sm-6 overflow-auto text-nowrap mb-3">
-                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-success">3</span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-warning">5</span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">7</span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-primary">7</span>─┴─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge n3">3</span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge n5">5</span>─┬─<span class="fret"></span>─┐</p>
+                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">7</span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge nalt">7</span>─┴─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                             </div>
                               
@@ -586,19 +696,19 @@
                             <div class="row">
                               <div class="col-lg-3 col-sm-6 overflow-auto text-nowrap mb-3">
                                 <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge n3">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
                                 <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                               <div class="col-lg-9 col-sm-6 overflow-auto text-nowrap mb-3">
-                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-warning">5</span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-primary">♭7</span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-success">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge n5">5</span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nalt">♭7</span>─┬─<span class="fret"></span>─┐</p>
+                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">E └─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge n3">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                             </div>
 
@@ -611,19 +721,19 @@
                             <div class="row">
                               <div class="col-lg-3 col-sm-6 overflow-auto text-nowrap mb-3">
                                 <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
                                 <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-success">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="badge n3">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                               <div class="col-lg-9 col-sm-6 overflow-auto text-nowrap mb-3">
-                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-primary">♭7</span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-danger">1</span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-success">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-warning">5</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge nalt">♭7</span>─┬─<span class="fret"></span>─┬─<span class="badge n1">1</span>─┬─<span class="fret"></span>─┐</p>
+                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="badge n3">♭3</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge n5">5</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                             </div>
 
@@ -636,19 +746,19 @@
                             <div class="row">
                               <div class="col-lg-3 col-sm-6 overflow-auto text-nowrap mb-3">
                                 <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="badge rounded-pill text-bg-success">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">B ├─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="badge n3">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
                                 <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-warning">5</span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge n5">5</span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                               <div class="col-lg-9 col-sm-6 overflow-auto text-nowrap mb-3">
-                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-danger">1</span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-success">♭3</span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-warning">5</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-primary">♭7</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge n1">1</span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge n3">♭3</span>─┬─<span class="fret"></span>─┐</p>
+                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge n5">5</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge nalt">♭7</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                             </div>
 
@@ -661,19 +771,19 @@
                             <div class="row">
                               <div class="col-lg-3 col-sm-6 overflow-auto text-nowrap mb-3">
                                 <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="badge rounded-pill text-bg-success">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">B ├─<span class="badge n3">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
                                 <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-primary">♭7</span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="badge nalt">♭7</span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                               <div class="col-lg-9 col-sm-6 overflow-auto text-nowrap mb-3">
-                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-success">♭3</span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge rounded-pill text-bg-warning">5</span>─┬─<span class="fret"></span>─┐</p>
-                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-primary">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-danger">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-success">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge rounded-pill text-bg-warning">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
-                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-primary">♭7</span>─┴─<span class="fret"></span>─┴─<span class="badge rounded-pill text-bg-danger">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
+                                <p class="font-monospace m-0">e ┌─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge n3">♭3</span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="fret"></span>─┬─<span class="badge n5">5</span>─┬─<span class="fret"></span>─┐</p>
+                                <p class="font-monospace m-0">B ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">G ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n3">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">D ├─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge nalt">♭7</span>─┼─<span class="fret"></span>─┼─<span class="badge n1">1</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">A ├─<span class="fret"></span>─┼─<span class="badge n3">♭3</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="badge n5">5</span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┼─<span class="fret"></span>─┤</p>
+                                <p class="font-monospace m-0">E └─<span class="fret"></span>─┴─<span class="badge nalt">♭7</span>─┴─<span class="fret"></span>─┴─<span class="badge n1">1</span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┴─<span class="fret"></span>─┘</p>
                               </div>
                             </div>
                               
@@ -682,6 +792,23 @@
 
                       </div>
 
+                      <!-- ============================================================= -->
+                      <div class="tab-pane fade" id="tab-arpeggios-dominant" role="tabpanel" aria-labelledby="dominant" tabindex="0">
+                        <p class="text-capitalize">Dominant Arpeggios</p>
+                        <p class="">2 notes per string</p>
+                      </div>
+
+                      <!-- ============================================================= -->
+                      <div class="tab-pane fade" id="tab-arpeggios-semidiminished" role="tabpanel" aria-labelledby="semitab-arpeggios-semidiminished" tabindex="0">
+                        <p class="text-capitalize">Semi-Diminished Arpeggios</p>
+                        <p class="">2 notes per string</p>
+                      </div>
+
+                      <!-- ============================================================= -->
+                      <div class="tab-pane fade" id="tab-arpeggios-diminished" role="tabpanel" aria-labelledby="semitab-arpeggios-diminished" tabindex="0">
+                        <p class="text-capitalize">Diminished Arpeggios</p>
+                        <p class="">2 notes per string</p>
+                      </div>
 
                       <!-- ============================================================= -->
                     </div>
