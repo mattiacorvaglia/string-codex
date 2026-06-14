@@ -38,25 +38,27 @@
       padding: 0 !important;
       border-radius: var(--bs-border-radius-pill)!important;
     }
-    .badge.n1 {
-      color: #fff!important;
-      background-color: RGBA(var(--bs-danger-rgb),var(--bs-bg-opacity,1))!important;
-    }
-    .badge.n3 {
-      color: #fff!important;
-      background-color: RGBA(var(--bs-success-rgb),var(--bs-bg-opacity,1))!important;
-    }
-    .badge.n5 {
-      color: #000!important;
-      background-color: RGBA(var(--bs-warning-rgb),var(--bs-bg-opacity,1))!important;
-    }
-    .badge.n7, .badge.nalt {
-      color: #fff!important;
-      background-color: RGBA(var(--bs-primary-rgb),var(--bs-bg-opacity,1))!important;
-    }
-    .badge.nmaj {
-      color: #fff!important;
-      background-color: RGBA(var(--bs-secondary-rgb),var(--bs-bg-opacity,1))!important;
+    .badge.n1 { color: #fff!important; background-color: RGBA(var(--bs-danger-rgb),var(--bs-bg-opacity,1))!important; }
+    .badge.n3 { color: #fff!important; background-color: RGBA(var(--bs-success-rgb),var(--bs-bg-opacity,1))!important; }
+    .badge.n3m { color: #fff!important; background-color: RGBA(var(--bs-success-rgb),var(--bs-bg-opacity,.4))!important; }
+    .badge.n5 { color: #000!important; background-color: RGBA(var(--bs-warning-rgb),var(--bs-bg-opacity,1))!important; }
+    .badge.n5d { color: #000!important; background-color: RGBA(var(--bs-warning-rgb),var(--bs-bg-opacity,.4))!important; }
+    .badge.n5a { color: #000!important; background-color: RGBA(var(--bs-warning-rgb),var(--bs-bg-opacity,.7))!important; }
+    .badge.n7 { color: #fff!important; background-color: RGBA(var(--bs-primary-rgb),var(--bs-bg-opacity,1))!important; }
+    .badge.n7m { color: #fff!important; background-color: RGBA(var(--bs-primary-rgb),var(--bs-bg-opacity,.4))!important; }
+    .badge.n6 { color: #000!important; background-color: RGBA(var(--bs-info-rgb),var(--bs-bg-opacity,1))!important; }
+    .badge.n9 { color: #fff!important; background-color: RGBA(var(--bs-secondary-rgb),var(--bs-bg-opacity,1))!important; }
+    .badge.n11 { color: #fff!important; background-color: RGBA(var(--bs-secondary-rgb),var(--bs-bg-opacity,.7))!important; }
+    .badge.n13 { color: #fff!important; background-color: RGBA(var(--bs-secondary-rgb),var(--bs-bg-opacity,.4))!important; }
+    .badge.nmaj { color: #fff!important; background-color: RGBA(var(--bs-secondary-rgb),var(--bs-bg-opacity,1))!important; }
+    .badge.nalt { color: #fff!important; background-color: RGBA(var(--bs-primary-rgb),var(--bs-bg-opacity,1))!important; }
+    .tcol-interval { width: 30%; }
+    .tcol-name { width: 40%; }
+    .tcol-long { width: 15%; }
+    .tcol-short { width: 15%; }
+    td>.badge {
+      width: 24px;
+      height: 24px;
     }
   </style>
 </head>
@@ -79,7 +81,10 @@
       <!-- ============================================================= -->
       <div class="col-md-2 mb-3">
         <div class="list-group shadow mb-3" role="tablist" id="menu_list" >
-          <a class="list-group-item list-group-item-action text-capitalize active" id="tab_1" data-bs-toggle="tab" data-bs-target="#major_scale" type="button" role="tab" aria-controls="major_scale" aria-selected="true">Major Scale</a>
+          <a class="list-group-item list-group-item-action text-capitalize active" id="tab_6" data-bs-toggle="tab" data-bs-target="#intervals" type="button" role="tab" aria-controls="intervals" aria-selected="true">Intervals</a>
+          <a class="list-group-item list-group-item-action text-capitalize" id="tab_7" data-bs-toggle="tab" data-bs-target="#scales" type="button" role="tab" aria-controls="scales" aria-selected="true">Scales</a>
+          <a class="list-group-item list-group-item-action text-capitalize" id="tab_8" data-bs-toggle="tab" data-bs-target="#chords" type="button" role="tab" aria-controls="chords" aria-selected="true">Chords</a>
+          <a class="list-group-item list-group-item-action text-capitalize" id="tab_1" data-bs-toggle="tab" data-bs-target="#major_scale" type="button" role="tab" aria-controls="major_scale" aria-selected="true">Major Scale</a>
           <a class="list-group-item list-group-item-action text-capitalize" id="tab_5" data-bs-toggle="tab" data-bs-target="#minor_scale" type="button" role="tab" aria-controls="minor_scale" aria-selected="true">Minor Scales</a>
           <a class="list-group-item list-group-item-action text-capitalize" id="tab_2" data-bs-toggle="tab" data-bs-target="#major_modes" type="button" role="tab" aria-controls="major_modes" aria-selected="true">Modes</a>
           <a class="list-group-item list-group-item-action text-capitalize" id="tab_3" data-bs-toggle="tab" data-bs-target="#arpeggios" type="button" role="tab" aria-controls="multiple_scales" aria-selected="false">2-notes Arpeggios</a>
@@ -90,9 +95,344 @@
       <!-- ============================================================= -->
       <div class="col-md-10 mb-3">
         <div class="tab-content" id="menu_content">
-          
+
           <!-- =========================================================== -->
-          <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="tab_1" tabindex="0" id="major_scale">
+          <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="tab_6" tabindex="0" id="intervals">
+            <div class="card shadow mb-3">
+              <div class="card-body p-4">
+                
+                <p class="text-capitalize">Intervals</p>
+                
+                <div class="row mb-3">
+                  
+                  <div class="col-sm-6 mb-3">
+                    <div class="card shadow">
+                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                        <p class="text-capitalize">Main Intervals</p>        
+                        <div class="table-responsive">
+                          <table class="table table-sm align-middle mb-5">
+                            <thead>
+                              <tr>
+                                <th scope="col">Semitones</th>
+                                <th scope="col">Note</th>
+                                <th scope="col">Interval name</th>
+                                <th scope="col">Short</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr><td>0</td><td>C</td><td>Perfect Unison</td><td>P1</td></tr>
+                              <tr><td>1</td><td>C<sup>♯</sup> / D<sup>♭</sup></td><td>Minor 2nd</td><td>m2</td></tr>
+                              <tr><td>2</td><td>D</td><td>Major 2nd</td><td>M2</td></tr>
+                              <tr><td>3</td><td>D<sup>♯</sup> / E<sup>♭</sup></td><td>Minor 3rd</td><td>m3</td></tr>
+                              <tr><td>4</td><td>E</td><td>Major 3rd</td><td>M3</td></tr>
+                              <tr><td>5</td><td>F</td><td>Perfect 4th</td><td>P4</td></tr>
+                              <tr><td>6</td><td>F<sup>♯</sup> / G<sup>♭</sup></td><td>Augmented 4th /<br>Diminished 5th /<br>Tritone</td><td>A4 /<br>d5</td></tr>
+                              <tr><td>7</td><td>G</td><td>Perfect 5th</td><td>P5</td></tr>
+                              <tr><td>8</td><td>G<sup>♯</sup> / A<sup>♭</sup></td><td>Minor 6th</td><td>m6</td></tr>
+                              <tr><td>9</td><td>A</td><td>Major 6th</td><td>M6</td></tr>
+                              <tr><td>10</td><td>A<sup>♯</sup> / B<sup>♭</sup></td><td>Minor 7th</td><td>m7</td></tr>
+                              <tr><td>11</td><td>B</td><td>Major 7th</td><td>M7</td></tr>
+                              <tr><td>12</td><td>C</td><td>Perfect Octave</td><td>P8</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                
+                  <div class="col-sm-6 mb-3">
+                    <div class="card shadow">
+                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                        <p class="text-capitalize">Compound Intervals</p>
+                        
+                        <div class="table-responsive">
+                          <table class="table table-sm align-middle mb-5">
+                            <thead>
+                              <tr>
+                                <th scope="col">Semitones</th>
+                                <th scope="col">Note</th>
+                                <th scope="col">Interval name</th>
+                                <th scope="col">Short</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr><td>12</td><td>C</td><td>Perfect Octave</td><td>P8</td></tr>
+                              <tr><td>13</td><td>C<sup>♯</sup> / D<sup>♭</sup></td><td>Minor 9th</td><td>m9</td></tr>
+                              <tr><td>14</td><td>D</td><td>Major 9th</td><td>M9</td></tr>
+                              <tr><td>15</td><td>D<sup>♯</sup> / E<sup>♭</sup></td><td>Augmented 9th</td><td>A9</td></tr>
+                              <tr><td>16</td><td>E</td><td>Diminished 11th</td><td>d11</td></tr>
+                              <tr><td>17</td><td>F</td><td>Perfect 11th</td><td>P11</td></tr>
+                              <tr><td>18</td><td>F<sup>♯</sup> / G<sup>♭</sup></td><td>Augmented 11th</td><td>A11</td></tr>
+                              <tr><td>19</td><td>G</td><td>Diminished 13th</td><td>d13</td></tr>
+                              <tr><td>20</td><td>G<sup>♯</sup> / A<sup>♭</sup></td><td>Minor 13th</td><td>m13</td></tr>
+                              <tr><td>21</td><td>A</td><td>Major 13th</td><td>M13</td></tr>
+                              <tr><td>22</td><td>A<sup>♯</sup> / B<sup>♭</sup></td><td>Augmented 13th</td><td>A13</td></tr>
+                              <tr><td>23</td><td>B</td><td>-</td><td>-</td></tr>
+                              <tr><td>24</td><td>C</td><td>Double Octave</td><td>D8</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
+                  
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================================================== -->
+          <div class="tab-pane fade" role="tabpanel" aria-labelledby="tab_7" tabindex="0" id="scales">
+            <div class="card shadow mb-3">
+              <div class="card-body p-4">
+
+                <p class="text-capitalize">Diatonic Scales (7 notes)</p>
+
+                <div class="row mb-3">
+
+                  <div class="col-sm-6 mb-3">
+                    <div class="card shadow">
+                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                        <p class="text-capitalize">Major Scale</p>
+                        <p class="text-capitalize">(T-T-s-T-T-T-s)</p>
+        
+                        <div class="table-responsive">
+                          <table class="table table-sm align-middle">
+                            <thead>
+                              <tr>
+                                <th scope="col">Degree</th>
+                                <th scope="col">Note</th>
+                                <th scope="col">Interval</th>
+                                <th scope="col">Name</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr><td>1</td><td>C</td><td>P1</td><td>Tonic</td></tr>
+                              <tr><td>2</td><td>D</td><td>M2</td><td>Supertonic</td></tr>
+                              <tr><td>3</td><td>E</td><td>M3</td><td>Mediant</td></tr>
+                              <tr><td>4</td><td>F</td><td>P4</td><td>Subdominant</td></tr>
+                              <tr><td>5</td><td>G</td><td>P5</td><td>Dominant</td></tr>
+                              <tr><td>6</td><td>A</td><td>M6</td><td>Submediant</td></tr>
+                              <tr><td>7</td><td>B</td><td>M7</td><td>Leading Tone</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6 mb-3">
+                    <div class="card shadow">
+                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                        <p class="text-capitalize">Natural Minor Scale</p>
+                        <p class="text-capitalize">(T-s-T-T-s-T-T)</p>
+        
+                        <div class="table-responsive">
+                          <table class="table table-sm align-middle">
+                            <thead>
+                              <tr>
+                                <th scope="col">Degree</th>
+                                <th scope="col">Note</th>
+                                <th scope="col">Interval</th>
+                                <th scope="col">Name</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr><td>1</td><td>A</td><td>P1</td><td>Tonic</td></tr>
+                              <tr><td>2</td><td>B</td><td>M2</td><td>Supertonic</td></tr>
+                              <tr><td>3</td><td>C</td><td>m3</td><td>Mediant</td></tr>
+                              <tr><td>4</td><td>D</td><td>P4</td><td>Subdominant</td></tr>
+                              <tr><td>5</td><td>E</td><td>P5</td><td>Dominant</td></tr>
+                              <tr><td>6</td><td>F</td><td>m6</td><td>Submediant</td></tr>
+                              <tr><td>7</td><td>G</td><td>m7</td><td>Subtonic</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================================================== -->
+          <div class="tab-pane fade" role="tabpanel" aria-labelledby="tab_8" tabindex="0" id="chords">
+            <div class="card shadow mb-3">
+              <div class="card-body p-4">
+                
+                <p class="text-capitalize">Chords</p>
+
+                <div class="row mb-3">
+
+                  <div class="col-sm-12 mb-3">
+                    <div class="card shadow">
+                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                        <p class="text-capitalize">Triads</p>
+
+                        <div class="table-responsive">
+                          <table class="table table-sm align-middle">
+                            <thead>
+                              <tr><th class="tcol-interval">Intervals</th><th class="tcol-name">Chord name</th><th class="tcol-long">Long</th><th class="tcol-short">Short</th></tr>
+                            </thead>
+                            <tbody>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5">5</span></td><td class="tcol-name">Major</td><td class="tcol-long"></td><td class="tcol-short"></td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5a">♯5</span></td><td class="tcol-name">Augmented</td><td class="tcol-long">aug</td><td class="tcol-short">+</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3m">♭3</span> <span class="badge n5">5</span></td><td class="tcol-name">Minor</td><td class="tcol-long">m</td><td class="tcol-short">-</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3m">♭3</span> <span class="badge n5d">♭5</span></td><td class="tcol-name">Diminished</td><td class="tcol-long">dim</td><td class="tcol-short">o</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n9">2</span> <span class="badge n5">5</span></td><td class="tcol-name">Suspended 2nd</td><td class="tcol-long">sus2</td><td class="tcol-short">sus2</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n11">4</span> <span class="badge n5">5</span></td><td class="tcol-name">Suspended 4th</td><td class="tcol-long">sus4</td><td class="tcol-short">sus</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 mb-3">
+                    <div class="card shadow">
+                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                        <p class="text-capitalize">Seventh</p>
+
+                        <div class="table-responsive">
+                          <table class="table table-sm align-middle">
+                            <thead>
+                              <tr><th class="tcol-interval">Intervals</th><th class="tcol-name">Chord name</th><th class="tcol-long">Long</th><th class="tcol-short">Short</th></tr>
+                            </thead>
+                            <tbody>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5">5</span> <span class="badge n7">7</span></td><td class="tcol-name">Major 7th</td><td class="tcol-long">maj7</td><td class="tcol-short">Δ</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5">5</span> <span class="badge n7m">♭7</span></td><td class="tcol-name">Dominant 7th</td><td class="tcol-long">7</td><td class="tcol-short">7</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5a">♯5</span> <span class="badge n7">7</span></td><td class="tcol-name">Augmented-Major 7th</td><td class="tcol-long">maj7(♯5)</td><td class="tcol-short">+Δ</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5a">♯5</span> <span class="badge n7m">♭7</span></td><td class="tcol-name">Augmented-Dominant 7th</td><td class="tcol-long">aug7</td><td class="tcol-short">+7</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3m">♭3</span> <span class="badge n5">5</span> <span class="badge n7">7</span></td><td class="tcol-name">Minor-Major 7th</td><td class="tcol-long">m(maj7)</td><td class="tcol-short">-Δ</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3m">♭3</span> <span class="badge n5">5</span> <span class="badge n7m">♭7</span></td><td class="tcol-name">Minor 7th</td><td class="tcol-long">m7</td><td class="tcol-short">-7</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3m">♭3</span> <span class="badge n5d">♭5</span> <span class="badge n7">7</span></td><td class="tcol-name">Diminished-Major 7th</td><td class="tcol-long">dim(maj7)</td><td class="tcol-short">oΔ</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3m">♭3</span> <span class="badge n5d">♭5</span> <span class="badge n7m">♭7</span></td><td class="tcol-name">Half-Diminished 7th</td><td class="tcol-long">m7(♭5)</td><td class="tcol-short">ø</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3m">♭3</span> <span class="badge n5d">♭5</span> <span class="badge n7m">𝄫7</span></td><td class="tcol-name">Diminished 7th</td><td class="tcol-long">dim7</td><td class="tcol-short">o7</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-12 mb-3">
+                    <div class="card shadow">
+                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                        <p class="text-capitalize">Sixth</p>
+
+                        <div class="table-responsive">
+                          <table class="table table-sm align-middle">
+                            <thead>
+                              <tr><th class="tcol-interval">Intervals</th><th class="tcol-name">Chord name</th><th class="tcol-long">Long</th><th class="tcol-short">Short</th></tr>
+                            </thead>
+                            <tbody>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5">5</span> <span class="badge n6">6</span></td><td class="tcol-name">Major 6th</td><td class="tcol-long">6</td><td class="tcol-short">6</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3m">♭3</span> <span class="badge n5">5</span> <span class="badge n6">6</span></td><td class="tcol-name">Minor 6th</td><td class="tcol-long">m6</td><td class="tcol-short">-6</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5">5</span> <span class="badge n6">6</span> <span class="badge n9">9</span></td><td class="tcol-name">Sixth-Ninth</td><td class="tcol-long">6/9</td><td class="tcol-short">6/9</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 mb-3">
+                    <div class="card shadow">
+                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                        <p class="text-capitalize">Extended</p>
+
+                        <div class="table-responsive">
+                          <table class="table table-sm align-middle">
+                            <thead>
+                              <tr><th class="tcol-interval">Intervals</th><th class="tcol-name">Chord name</th><th class="tcol-long">Long</th><th class="tcol-short">Short</th></tr>
+                            </thead>
+                            <tbody>
+                              <!-- <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5">5</span> <span class="badge n7">7</span></td><td class="tcol-name">Major 7th</td><td class="tcol-long">maj7</td><td>Δ</td></tr> -->
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5">5</span> <span class="badge n7">7</span> <span class="badge n9">9</span></td><td class="tcol-name">Major 9th</td><td class="tcol-long">maj9</td><td class="tcol-short">Δ9</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5">5</span> <span class="badge n7">7</span> <span class="badge n9">9</span> <span class="badge n11">11</span></td><td class="tcol-name">Major 11th</td><td class="tcol-long">maj11</td><td class="tcol-short">Δ11</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5">5</span> <span class="badge n7">7</span> <span class="badge n9">9</span> <span class="badge n11">11</span> <span class="badge n13">13</span></td><td class="tcol-name">Major 13th</td><td class="tcol-long">maj13</td><td class="tcol-short">Δ13</td></tr>
+                              <!-- <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3m">♭3</span> <span class="badge n5">5</span> <span class="badge n7m">♭7</span></td><td class="tcol-name">Minor 7th</td><td class="tcol-long">m7</td><td class="tcol-short">-7</td></tr> -->
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3m">♭3</span> <span class="badge n5">5</span> <span class="badge n7m">♭7</span> <span class="badge n9">9</span></td><td class="tcol-name">Minor 9th</td><td class="tcol-long">m9</td><td class="tcol-short">-9</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3m">♭3</span> <span class="badge n5">5</span> <span class="badge n7m">♭7</span> <span class="badge n9">9</span> <span class="badge n11">11</span></td><td class="tcol-name">Minor 11th</td><td class="tcol-long">m11</td><td class="tcol-short">-11</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3m">♭3</span> <span class="badge n5">5</span> <span class="badge n7m">♭7</span> <span class="badge n9">9</span> <span class="badge n11">11</span> <span class="badge n13">13</span></td><td class="tcol-name">Minor 13th</td><td class="tcol-long">m13</td><td class="tcol-short">-13</td></tr>
+                              <!-- <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5">5</span> ♭7</td><td class="tcol-name">Dominant 7th</td><td class="tcol-long">7</td><td class="tcol-short">7</td></tr> -->
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5">5</span> <span class="badge n7m">♭7</span> <span class="badge n9">9</span></td><td class="tcol-name">Dominant 9th</td><td class="tcol-long">9</td><td class="tcol-short">9</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5">5</span> <span class="badge n7m">♭7</span> <span class="badge n9">9</span> <span class="badge n11">11</span></td><td class="tcol-name">Dominant 11th</td><td class="tcol-long">11</td><td class="tcol-short">11</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n1">1</span> <span class="badge n3">3</span> <span class="badge n5">5</span> <span class="badge n7m">♭7</span> <span class="badge n9">9</span> <span class="badge n11">11</span> <span class="badge n13">13</span></td><td class="tcol-name">Dominant 13th</td><td class="tcol-long">13</td><td class="tcol-short">13</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 mb-3">
+                    <div class="card shadow">
+                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                        <p class="text-capitalize">Added tones</p>
+
+                        <div class="table-responsive">
+                          <table class="table table-sm align-middle">
+                            <thead>
+                              <tr><th class="tcol-interval">Added tones</th><th class="tcol-name"></th><th class="tcol-long">Long</th><th class="tcol-short">Short</th></tr>
+                            </thead>
+                            <tbody>
+                              <tr><td class="tcol-interval"><span class="badge n9">9</span></td><td class="tcol-name"></td><td class="tcol-long">add9</td><td class="tcol-short">(9)</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n11">11</span></td><td class="tcol-name"></td><td class="tcol-long">add11</td><td class="tcol-short">(11)</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n13">13</span></td><td class="tcol-name"></td><td class="tcol-long">add13</td><td class="tcol-short">(13)</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 mb-3">
+                    <div class="card shadow">
+                      <div class="card-body overflow-auto text-nowrap p-4 mb-3">
+                        <p class="text-capitalize">Altered tones</p>
+
+                        <div class="table-responsive">
+                          <table class="table table-sm align-middle">
+                            <thead>
+                              <tr><th class="tcol-interval">Altered tones</th><th class="tcol-name"></th><th class="tcol-long">Long</th><th class="tcol-short">Short</th></tr>
+                            </thead>
+                            <tbody>
+                              <tr><td class="tcol-interval"><span class="badge n9">♭9</span></td><td class="tcol-name"></td><td class="tcol-long">(♭9)</td><td class="tcol-short">(♭9)</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n9">♯9</span></td><td class="tcol-name"></td><td class="tcol-long">(♯9)</td><td class="tcol-short">(♯9)</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n11">♭11</span></td><td class="tcol-name"></td><td class="tcol-long">(♭11)</td><td class="tcol-short">(♭11)</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n11">♯11</span></td><td class="tcol-name"></td><td class="tcol-long">(♯11)</td><td class="tcol-short">(♯11)</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n13">♭13</span></td><td class="tcol-name"></td><td class="tcol-long">(♭13)</td><td class="tcol-short">(♭13)</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n13">♯13</span></td><td class="tcol-name"></td><td class="tcol-long">(♯13)</td><td class="tcol-short">(♯13)</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n9">♭9</span> <span class="badge n13">♭13</span></td><td class="tcol-name"></td><td class="tcol-long">(♭9,♭13)</td><td class="tcol-short">(♭9,♭13)</td></tr>
+                              <tr><td class="tcol-interval"><span class="badge n9">♭9</span> <span class="badge n11">♭11</span> <span class="badge n13">♭13</span></td><td class="tcol-name"></td><td class="tcol-long">(♭9,♭11,♭13)</td><td class="tcol-short">(♭9,♭11,♭13)</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+          <!-- =========================================================== -->
+          <div class="tab-pane fade" role="tabpanel" aria-labelledby="tab_1" tabindex="0" id="major_scale">
             <div class="card shadow mb-3">
               <div class="card-body p-4">
                 <p class="text-capitalize">Major Scale</p>
@@ -841,7 +1181,7 @@
                   <button class="nav-link text-reset active" href="#major" role="tab" id="tab-major" data-bs-toggle="tab" data-bs-target="#tab-arpeggios-major" type="button" aria-controls="tab-arpeggios-major" aria-selected="true">Major</button>
                   <button class="nav-link text-reset" href="#minor" role="tab" id="teb-minor" data-bs-toggle="tab" data-bs-target="#tab-arpeggios-minor" type="button" aria-controls="tab-arpeggios-minor" aria-selected="false">Minor</button>
                   <button class="nav-link text-reset" href="#dominant" role="tab" id="tab-dominant" data-bs-toggle="tab" data-bs-target="#tab-arpeggios-dominant" type="button" aria-controls="tab-arpeggios-dominant" aria-selected="false">Dominant</button>
-                  <button class="nav-link text-reset" href="#semidiminished" role="tab" id="tab-semidiminished" data-bs-toggle="tab" data-bs-target="#tab-arpeggios-semidiminished" type="button" aria-controls="tab-arpeggios-semidiminished" aria-selected="false">Semi-Diminished</button>
+                  <button class="nav-link text-reset" href="#semidiminished" role="tab" id="tab-semidiminished" data-bs-toggle="tab" data-bs-target="#tab-arpeggios-semidiminished" type="button" aria-controls="tab-arpeggios-semidiminished" aria-selected="false">Half-Diminished</button>
                   <button class="nav-link text-reset" href="#diminished" role="tab" id="tab-diminished" data-bs-toggle="tab" data-bs-target="#tab-arpeggios-diminished" type="button" aria-controls="tab-arpeggios-diminished" aria-selected="false">Diminished</button>
                 </nav>
 
