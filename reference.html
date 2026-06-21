@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Mattia Corvaglia">
-  <title>E/C Harmony</title>
+  <title>String Codex</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <style>
@@ -42,7 +42,7 @@
     .badge.n3 { color: #fff!important; background-color: RGBA(var(--bs-success-rgb),var(--bs-bg-opacity,1))!important; }
     .badge.n3m { color: #fff!important; background-color: RGBA(var(--bs-success-rgb),var(--bs-bg-opacity,.4))!important; }
     .badge.n5 { color: #000!important; background-color: RGBA(var(--bs-warning-rgb),var(--bs-bg-opacity,1))!important; }
-    .badge.n5d { color: #000!important; background-color: RGBA(var(--bs-warning-rgb),var(--bs-bg-opacity,.4))!important; }
+    .badge.n5d { color: #fff!important; background-color: RGBA(var(--bs-warning-rgb),var(--bs-bg-opacity,.4))!important; }
     .badge.n5a { color: #000!important; background-color: RGBA(var(--bs-warning-rgb),var(--bs-bg-opacity,.7))!important; }
     .badge.n7 { color: #fff!important; background-color: RGBA(var(--bs-primary-rgb),var(--bs-bg-opacity,1))!important; }
     .badge.n7m { color: #fff!important; background-color: RGBA(var(--bs-primary-rgb),var(--bs-bg-opacity,.4))!important; }
@@ -56,9 +56,13 @@
     .tcol-name { width: 40%; }
     .tcol-long { width: 15%; }
     .tcol-short { width: 15%; }
-    td>.badge {
-      width: 24px;
-      height: 24px;
+    td>.badge { width: 24px; height: 24px; }
+    .link-custom {
+      padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
+      color: var(--bs-list-group-action-color);
+      text-decoration: none;
+      border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
+      border-radius: var(--bs-border-radius);
     }
   </style>
 </head>
@@ -67,7 +71,8 @@
   <!-- ============================================================= -->
   <nav class="navbar">
     <div class="container">
-      <a href="index.html" class="link-underline link-underline-opacity-0 py-2"><span class="navbar-text"><i class="bi bi-music-note-beamed me-2"></i>E/C Harmony</span></a>
+      <!-- <a href="index.html" class="link-underline link-underline-opacity-0 py-2"><span class="navbar-text"><i class="bi bi-music-note-beamed me-2"></i>String Codex</span></a> -->
+      <a href="index.html" class="link-underline link-underline-opacity-0 py-2"><span class="navbar-text">/// String Codex</span></a>
       <!-- <form class="d-flex shadow" role="search">
         <input class="form-control form-control-sm" type="search" placeholder="Search" aria-label="Search"/>
       </form> -->
@@ -80,24 +85,57 @@
 
       <!-- ============================================================= -->
       <div class="col-md-2 mb-3">
-        <div class="list-group shadow mb-3" role="tablist" id="menu_list" >
-          <a class="list-group-item list-group-item-action text-capitalize active" id="tab_6" data-bs-toggle="tab" data-bs-target="#intervals" type="button" role="tab" aria-controls="intervals" aria-selected="true">Intervals</a>
-          <a class="list-group-item list-group-item-action text-capitalize" id="tab_7" data-bs-toggle="tab" data-bs-target="#scales" type="button" role="tab" aria-controls="scales" aria-selected="true">Scales</a>
-          <a class="list-group-item list-group-item-action text-capitalize" id="tab_8" data-bs-toggle="tab" data-bs-target="#chords" type="button" role="tab" aria-controls="chords" aria-selected="true">Chords</a>
-          <a class="list-group-item list-group-item-action text-capitalize" id="tab_1" data-bs-toggle="tab" data-bs-target="#major_scale" type="button" role="tab" aria-controls="major_scale" aria-selected="true">Major Scale</a>
-          <a class="list-group-item list-group-item-action text-capitalize" id="tab_5" data-bs-toggle="tab" data-bs-target="#minor_scale" type="button" role="tab" aria-controls="minor_scale" aria-selected="true">Minor Scales</a>
-          <a class="list-group-item list-group-item-action text-capitalize" id="tab_2" data-bs-toggle="tab" data-bs-target="#major_modes" type="button" role="tab" aria-controls="major_modes" aria-selected="true">Modes</a>
+
+        <div class="list-group shadow mb-3" role="tablist" id="menu_list">
+          <a class="d-none list-group-item-action text-capitalize active" id="tab_0" data-bs-toggle="tab" data-bs-target="#hello" type="button" role="tab" aria-controls="hello" aria-selected="true"></a>
+          <a class="list-group-item list-group-item-action text-capitalize rounded-top" id="tab_6" data-bs-toggle="tab" data-bs-target="#intervals" type="button" role="tab" aria-controls="intervals" aria-selected="false">Intervals</a>
+          <a class="list-group-item list-group-item-action text-capitalize" id="tab_7" data-bs-toggle="tab" data-bs-target="#scales" type="button" role="tab" aria-controls="scales" aria-selected="false">Scales</a>
+          <a class="list-group-item list-group-item-action text-capitalize ps-3" id="tab_1" data-bs-toggle="tab" data-bs-target="#major_scale" type="button" role="tab" aria-controls="major_scale" aria-selected="false">&nbsp; Major</a>
+          <a class="list-group-item list-group-item-action text-capitalize ps-3" id="tab_5" data-bs-toggle="tab" data-bs-target="#minor_scale" type="button" role="tab" aria-controls="minor_scale" aria-selected="false">&nbsp; Minor</a>
+          <a class="list-group-item list-group-item-action text-capitalize" id="tab_8" data-bs-toggle="tab" data-bs-target="#chords" type="button" role="tab" aria-controls="chords" aria-selected="false">Chords</a>
+          <a class="list-group-item list-group-item-action text-capitalize" id="tab_2" data-bs-toggle="tab" data-bs-target="#major_modes" type="button" role="tab" aria-controls="major_modes" aria-selected="false">Modes</a>
           <a class="list-group-item list-group-item-action text-capitalize" id="tab_3" data-bs-toggle="tab" data-bs-target="#arpeggios" type="button" role="tab" aria-controls="multiple_scales" aria-selected="false">2-notes Arpeggios</a>
           <a class="list-group-item list-group-item-action text-capitalize" id="tab_4" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">About</a>
         </div>
+        
+        <div class="list-group shadow mb-3" role="tablist">
+          <a href="index.html" class="list-group-item-action text-capitalize link-custom" type="button">Scale generator</a>
+        </div>
+
+        <!-- <div class="card mb-3">
+          <div class="card-body">
+            <a href="index.html" class="link-custom">Scale generator</a>
+          </div>
+        </div> -->
+
       </div>
 
       <!-- ============================================================= -->
       <div class="col-md-10 mb-3">
         <div class="tab-content" id="menu_content">
 
+                    <!-- =========================================================== -->
+          <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="tab_0" tabindex="0" id="hello">
+            <div class="card shadow">
+              <div class="card-body p-4">
+                <div class="row">
+                  <div class="col-md-3 text-center">
+                    <img src="logo-250.png" width="100%" class="px-5 px-md-0"></img>
+                  </div>
+                  <div class="col-md-9 mt-4 text-center text-md-start">
+                    <pre><code> ▗▄▄▖▗▄▄▄▖▗▄▄▖ ▗▄▄▄▖▗▖  ▗▖ ▗▄▄▖     ▗▄▄▖ ▗▄▖ ▗▄▄▄ ▗▄▄▄▖▗▖  ▗▖
+▐▌     █  ▐▌ ▐▌  █  ▐▛▚▖▐▌▐▌       ▐▌   ▐▌ ▐▌▐▌  █▐▌    ▝▚▞▘ 
+ ▝▀▚▖  █  ▐▛▀▚▖  █  ▐▌ ▝▜▌▐▌▝▜▌    ▐▌   ▐▌ ▐▌▐▌  █▐▛▀▀▘  ▐▌  
+▗▄▄▞▘  █  ▐▌ ▐▌▗▄█▄▖▐▌  ▐▌▝▚▄▞▘    ▝▚▄▄▖▝▚▄▞▘▐▙▄▄▀▐▙▄▄▖▗▞▘▝▚▖</code></pre>
+                    <p class="my-4">By <a href="https://mattiacorvaglia.com">Mattia Corvaglia</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- =========================================================== -->
-          <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="tab_6" tabindex="0" id="intervals">
+          <div class="tab-pane fade" role="tabpanel" aria-labelledby="tab_6" tabindex="0" id="intervals">
             <div class="card shadow mb-3">
               <div class="card-body p-4">
                 
@@ -126,7 +164,7 @@
                               <tr><td>3</td><td>D<sup>♯</sup> / E<sup>♭</sup></td><td>Minor 3rd</td><td>m3</td></tr>
                               <tr><td>4</td><td>E</td><td>Major 3rd</td><td>M3</td></tr>
                               <tr><td>5</td><td>F</td><td>Perfect 4th</td><td>P4</td></tr>
-                              <tr><td>6</td><td>F<sup>♯</sup> / G<sup>♭</sup></td><td>Augmented 4th /<br>Diminished 5th /<br>Tritone</td><td>A4 /<br>d5</td></tr>
+                              <tr><td>6</td><td>F<sup>♯</sup> / G<sup>♭</sup></td><td>Diminished 5th*</td><td>d5</td></tr>
                               <tr><td>7</td><td>G</td><td>Perfect 5th</td><td>P5</td></tr>
                               <tr><td>8</td><td>G<sup>♯</sup> / A<sup>♭</sup></td><td>Minor 6th</td><td>m6</td></tr>
                               <tr><td>9</td><td>A</td><td>Major 6th</td><td>M6</td></tr>
@@ -135,6 +173,7 @@
                               <tr><td>12</td><td>C</td><td>Perfect Octave</td><td>P8</td></tr>
                             </tbody>
                           </table>
+                          <p>(*) or Augmented 4th or Tritone</p>
                         </div>
                       </div>
                     </div>
@@ -429,7 +468,6 @@
               </div>
             </div>
           </div>
-
 
           <!-- =========================================================== -->
           <div class="tab-pane fade" role="tabpanel" aria-labelledby="tab_1" tabindex="0" id="major_scale">
@@ -1738,14 +1776,21 @@
             </div> -->
           </div>
 
-           <!-- =========================================================== -->
+          <!-- =========================================================== -->
           <div class="tab-pane fade" role="tabpanel" aria-labelledby="tab_4" tabindex="0" id="about">
             <div class="card shadow">
               <div class="card-body p-4">
-                <p class="text-capitalize">About</p>
-                <p>Welcome to <a href="#">E/C Harmony</a> — a simple and practical tool designed for musicians, students, producers, and music theory enthusiasts.</p>
-                <p>This project was developed by <a href="https://mattiacorvaglia.com">Mattia Corvaglia</a>, with the idea of creating a lightweight and accessible reference tool that musicians can use every day — both for learning and for practical musical workflows.</p>
-                <p>Thanks for visiting, and enjoy exploring music theory.</p>
+                <div class="row">
+                  <div class="col-md-3 text-center">
+                    <img src="logo-250.png" width="100%" class="px-5 px-md-0"></img>
+                  </div>
+                  <div class="col-md-9">
+                    <p class="text-capitalize my-4">About</p>
+                    <p>Welcome to <a href="#">String Codex</a> — a simple and practical tool designed for musicians, students, producers, and music theory enthusiasts.</p>
+                    <p>This project was developed by <a href="https://mattiacorvaglia.com">Mattia Corvaglia</a>, with the idea of creating a lightweight and accessible reference tool that musicians can use every day — both for learning and for practical musical workflows.</p>
+                    <p>Thanks for visiting, and enjoy exploring music theory.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1754,14 +1799,11 @@
         </div>
       </div>
 
-
     <!-- ============================================================= -->
     </div>
   </div>
 
   <!-- ============================================================= -->
-  <!-- Javascripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  <!-- <script language="javascript"></script> -->
 </body>
 </html>
