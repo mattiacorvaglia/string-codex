@@ -65,7 +65,7 @@
       border-radius: var(--bs-border-radius);
     }
     .small-title { font-size: 1rem; }
-    @media (max-width: 960pxpx) {
+    @media (max-width: 960px) {
       .small-title {
         font-size: 0.65rem;
       }
@@ -76,43 +76,52 @@
 
   <!-- ============================================================= -->
   <nav class="navbar">
-    <div class="container">
-      <!-- <a href="index.html" class="link-underline link-underline-opacity-0 py-2"><span class="navbar-text"><i class="bi bi-music-note-beamed me-2"></i>String Codex</span></a> -->
-      <a href="index.html" class="link-underline link-underline-opacity-0 py-2"><span class="navbar-text">/// String Codex</span></a>
-      <!-- <form class="d-flex shadow" role="search">
-        <input class="form-control form-control-sm" type="search" placeholder="Search" aria-label="Search"/>
-      </form> -->
+    <div class="container-md">
+        <!-- <a href="index.html" class="link-underline link-underline-opacity-0 py-2"><span class="navbar-text"><i class="bi bi-music-note-beamed me-2"></i>String Codex</span></a> -->
+        <!-- <button class="btn btn-primary d-md-none mb-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">☰ Menu</button> -->
+        <a href="index.html" class="link-underline link-underline-opacity-0 py-2"><span class="navbar-text">/// String Codex</span></a>
+        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidedbarMenu" aria-expanded="false" aria-label="Toggle menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- <form class="d-flex shadow" role="search">
+          <input class="form-control form-control-sm" type="search" placeholder="Search" aria-label="Search"/>
+        </form> -->
     </div>
   </nav>
 
   <!-- ============================================================= -->
   <div class="container-md">
+
     <div class="row">
 
       <!-- ============================================================= -->
       <div class="col-md-2 mb-3">
 
-        <div class="list-group shadow mb-3" role="tablist" id="menu_list">
-          <a class="d-none list-group-item-action text-capitalize active" id="tab_0" data-bs-toggle="tab" data-bs-target="#hello" type="button" role="tab" aria-controls="hello" aria-selected="true"></a>
-          <a class="list-group-item list-group-item-action text-capitalize rounded-top" id="tab_6" data-bs-toggle="tab" data-bs-target="#intervals" type="button" role="tab" aria-controls="intervals" aria-selected="false">Intervals</a>
-          <a class="list-group-item list-group-item-action text-capitalize" id="tab_7" data-bs-toggle="tab" data-bs-target="#scales" type="button" role="tab" aria-controls="scales" aria-selected="false">Scales</a>
-          <a class="list-group-item list-group-item-action text-capitalize ps-3" id="tab_1" data-bs-toggle="tab" data-bs-target="#major_scale" type="button" role="tab" aria-controls="major_scale" aria-selected="false">&nbsp; Major</a>
-          <a class="list-group-item list-group-item-action text-capitalize ps-3" id="tab_5" data-bs-toggle="tab" data-bs-target="#minor_scale" type="button" role="tab" aria-controls="minor_scale" aria-selected="false">&nbsp; Minor</a>
-          <a class="list-group-item list-group-item-action text-capitalize" id="tab_8" data-bs-toggle="tab" data-bs-target="#chords" type="button" role="tab" aria-controls="chords" aria-selected="false">Chords</a>
-          <a class="list-group-item list-group-item-action text-capitalize" id="tab_2" data-bs-toggle="tab" data-bs-target="#major_modes" type="button" role="tab" aria-controls="major_modes" aria-selected="false">Modes</a>
-          <a class="list-group-item list-group-item-action text-capitalize" id="tab_3" data-bs-toggle="tab" data-bs-target="#arpeggios" type="button" role="tab" aria-controls="multiple_scales" aria-selected="false">2-notes Arpeggios</a>
-          <a class="list-group-item list-group-item-action text-capitalize" id="tab_4" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">About</a>
-        </div>
-        
-        <div class="list-group shadow mb-3" role="tablist">
-          <a href="index.html" class="list-group-item-action text-capitalize link-custom" type="button">Scale generator</a>
-        </div>
-
-        <!-- <div class="card mb-3">
-          <div class="card-body">
-            <a href="index.html" class="link-custom">Scale generator</a>
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="sidebarMenu">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
           </div>
-        </div> -->
+          <div class="offcanvas-body d-block">
+
+            <div class="list-group shadow mb-3" role="tablist" id="menu_list">
+              <a class="d-none list-group-item-action text-capitalize active" id="tab_0" data-bs-toggle="tab" data-bs-target="#hello" type="button" role="tab" aria-controls="hello" aria-selected="true"></a>
+              <a class="list-group-item list-group-item-action text-capitalize rounded-top" id="tab_6" data-bs-toggle="tab" data-bs-target="#intervals" type="button" role="tab" aria-controls="intervals" aria-selected="false">Intervals</a>
+              <a class="list-group-item list-group-item-action text-capitalize" id="tab_7" data-bs-toggle="tab" data-bs-target="#scales" type="button" role="tab" aria-controls="scales" aria-selected="false">Scales</a>
+              <a class="list-group-item list-group-item-action text-capitalize ps-3" id="tab_1" data-bs-toggle="tab" data-bs-target="#major_scale" type="button" role="tab" aria-controls="major_scale" aria-selected="false">&nbsp; Major</a>
+              <a class="list-group-item list-group-item-action text-capitalize ps-3" id="tab_5" data-bs-toggle="tab" data-bs-target="#minor_scale" type="button" role="tab" aria-controls="minor_scale" aria-selected="false">&nbsp; Minor</a>
+              <a class="list-group-item list-group-item-action text-capitalize" id="tab_8" data-bs-toggle="tab" data-bs-target="#chords" type="button" role="tab" aria-controls="chords" aria-selected="false">Chords</a>
+              <a class="list-group-item list-group-item-action text-capitalize" id="tab_2" data-bs-toggle="tab" data-bs-target="#major_modes" type="button" role="tab" aria-controls="major_modes" aria-selected="false">Modes</a>
+              <a class="list-group-item list-group-item-action text-capitalize" id="tab_3" data-bs-toggle="tab" data-bs-target="#arpeggios" type="button" role="tab" aria-controls="multiple_scales" aria-selected="false">2-notes Arpeggios</a>
+              <a class="list-group-item list-group-item-action text-capitalize" id="tab_4" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">About</a>
+            </div>
+            
+            <div class="list-group shadow mb-3" role="tablist">
+              <a href="index.html" class="list-group-item-action text-capitalize link-custom" type="button">Scale generator</a>
+            </div>
+
+          </div>
+        </div>
 
       </div>
 
@@ -129,7 +138,7 @@
                     <img src="logo-250.png" width="100%" class="px-5 px-md-0"></img>
                   </div>
                   <div class="col-md-9 mt-4 text-center text-md-start">
-                    <pre><code class="small-title"> ▗▄▄▖▗▄▄▄▖▗▄▄▖ ▗▄▄▄▖▗▖  ▗▖ ▗▄▄▖     ▗▄▄▖ ▗▄▖ ▗▄▄▄ ▗▄▄▄▖▗▖  ▗▖
+                    <pre class="small-title"><code> ▗▄▄▖▗▄▄▄▖▗▄▄▖ ▗▄▄▄▖▗▖  ▗▖ ▗▄▄▖     ▗▄▄▖ ▗▄▖ ▗▄▄▄ ▗▄▄▄▖▗▖  ▗▖
 ▐▌     █  ▐▌ ▐▌  █  ▐▛▚▖▐▌▐▌       ▐▌   ▐▌ ▐▌▐▌  █▐▌    ▝▚▞▘ 
  ▝▀▚▖  █  ▐▛▀▚▖  █  ▐▌ ▝▜▌▐▌▝▜▌    ▐▌   ▐▌ ▐▌▐▌  █▐▛▀▀▘  ▐▌  
 ▗▄▄▞▘  █  ▐▌ ▐▌▗▄█▄▖▐▌  ▐▌▝▚▄▞▘    ▝▚▄▄▖▝▚▄▞▘▐▙▄▄▀▐▙▄▄▖▗▞▘▝▚▖</code></pre>
