@@ -46,11 +46,11 @@
       <!-- ============================================================= -->
       <div class="col-md-2 mb-3">
 
-        <div class="list-group shadow mb-3" role="tablist" id="menu_list" >
+        <div class="list-group shadow mb-4" role="tablist" id="menu_list" >
           <a class="list-group-item list-group-item-action text-capitalize active" id="tab_1" data-bs-toggle="tab" data-bs-target="#single_scale" type="button" role="tab" aria-controls="single_scale" aria-selected="true">Single Scale</a>
           <a class="list-group-item list-group-item-action text-capitalize" id="tab_4" data-bs-toggle="tab" data-bs-target="#multiple_scales" type="button" role="tab" aria-controls="multiple_scales" aria-selected="false">Multiple Scales</a>
           <!-- <a class="list-group-item list-group-item-action text-capitalize" id="tab_3" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">About</a> -->
-           <a href="reference.html" class="list-group-item-action text-capitalize link-custom" type="button">Theory References</a>
+           <a href="index.html" class="list-group-item-action text-capitalize link-custom" type="button">Theory References</a>
         </div>
 
         <div class="card mb-3">
@@ -585,7 +585,7 @@
         const colChord = template.content.firstElementChild.cloneNode(true);
         colChord.getElementsByClassName('card-header')[0].textContent = mode.degree_quality[i];
         if (CHORD_NOTATION_SHORT) {
-          colChord.getElementsByTagName('p')[0].innerHTML = wrapAccidentalsInSup(res[i])+'<sup>'+mode.chord_progression_short[i]+'</sup>';
+          colChord.getElementsByTagName('p')[0].innerHTML = wrapAccidentalsInSup(res[i])+mode.chord_progression_short[i];
         } else {
           colChord.getElementsByTagName('p')[0].innerHTML = wrapAccidentalsInSup(res[i])+mode.chord_progression[i];
         }
@@ -617,7 +617,7 @@
         if (SHOW_SCALE == 5) {
           if (CHORD_NOTATION_SHORT) {
             for (let l = 0; l < NOTE_LETTERS.length; l++) {
-              tr.children[l+1].innerHTML = item.scale_degrees[l]+'<sup>'+item.chord_progression_short[l]+'</sup>';
+              tr.children[l+1].innerHTML = item.scale_degrees[l]+item.chord_progression_short[l];
             }
           } else {
             for (let m = 0; m < NOTE_LETTERS.length; m++) {
