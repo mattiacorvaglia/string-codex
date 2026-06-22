@@ -2,7 +2,7 @@
 
 ![alt text](https://github.com/mattiacorvaglia/string-codex/blob/main/logo-250.png?raw=true)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/71b23827-b650-4b8d-a240-8b092040b7d6/deploy-status)](https://app.netlify.com/projects/easyharmony/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/71b23827-b650-4b8d-a240-8b092040b7d6/deploy-status)](https://app.netlify.com/projects/stringcodex/deploys)
 
 A simple and practical tool designed for musicians, students, producers, and music theory enthusiasts.  
 This project was developed with the idea of creating a lightweight and accessible reference tool that musicians can use every day — both for learning and for practical musical workflows.
